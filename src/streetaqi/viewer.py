@@ -415,7 +415,7 @@ def generate_html(readings_path: Path, output_path: Path | None = None) -> Path:
                     <div class="logged-comparison">
                         <strong>Logged values:</strong>
                         PM2.5: <span class="{pm25_class_cmp}">{logged_pm25 if logged_pm25 is not None else "--"}</span> |
-                        CO: <span class="{co_class_cmp}">{logged_co if logged_co is not None else "--"}</span>
+                        CO₂: <span class="{co_class_cmp}">{logged_co if logged_co is not None else "--"}</span>
                     </div>"""
 
         lat_str = f"{lat:.6f}" if isinstance(lat, (int, float)) else str(lat)
@@ -440,9 +440,9 @@ def generate_html(readings_path: Path, output_path: Path | None = None) -> Path:
                             <div class="reading-unit">μg/m³</div>
                         </div>
                         <div class="reading-box">
-                            <div class="reading-label">CO</div>
+                            <div class="reading-label">CO₂</div>
                             <div class="reading-value {co_class}">{co_display}</div>
-                            <div class="reading-unit">μg/m³</div>
+                            <div class="reading-unit">ppm</div>
                         </div>
                     </div>{comparison_html}
                     <div class="confidence">Confidence: {confidence:.0%}</div>
@@ -455,7 +455,7 @@ def generate_html(readings_path: Path, output_path: Path | None = None) -> Path:
                                        data-index="{i}" data-field="pm25" onchange="markCorrected(this)">
                             </div>
                             <div class="correction-field">
-                                <label>CO</label>
+                                <label>CO₂</label>
                                 <input type="number" step="1" placeholder="e.g. 412"
                                        data-index="{i}" data-field="co" onchange="markCorrected(this)">
                             </div>

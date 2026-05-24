@@ -6,7 +6,7 @@ Street-level air pollution measurements and analysis tools.
 
 Based on 98 PM2.5 readings collected across 5 days:
 
-| Statistic | PM2.5 (μg/m³) | CO (μg/m³) |
+| Statistic | PM2.5 (μg/m³) | CO₂ (ppm) |
 |-----------|---------------|-----------|
 | Mean | 117.6 | 541 |
 | Median | 94.0 | 415 |
@@ -51,7 +51,7 @@ streetaqi analyze --readings exports/pollution_logs.csv --output output/analysis
 
 Outputs:
 - `output/analysis/figs/fig1_map.html` - Interactive map color-coded by PM2.5 level
-- `output/analysis/figs/fig2_histogram.pdf` - PM2.5 and CO distributions
+- `output/analysis/figs/fig2_histogram.pdf` - PM2.5 and CO₂ distributions
 - `output/analysis/figs/fig3_boxplot_by_day.pdf` - Daily variation
 - `output/analysis/figs/fig4_pm_co_scatter.pdf` - PM2.5 vs CO correlation
 - `output/analysis/tabs/*.tex` - LaTeX tables for publication
