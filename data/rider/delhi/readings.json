@@ -2,6 +2,7 @@
   "source": "rider_form",
   "city": "delhi",
   "export_date": "2026-05-24T18:01:03.350785+00:00",
+  "export_name": "export-2026-05-24",
   "reading_count": 98,
   "readings": [
     {
@@ -29,7 +30,10 @@
         "stop_id": "1.2",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "1.2"
+        "note_raw": "1.2",
+        "address": "Karkari Mor Flyover, Indraprastha Extension, Preet Vihar Tehsil, East Delhi, Delhi, 110051, India",
+        "road_type": "primary",
+        "road_name": "Karkari Mor Flyover"
       }
     },
     {
@@ -57,7 +61,10 @@
         "stop_id": "1.1",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "1.1"
+        "note_raw": "1.1",
+        "address": "D Block, Preet Vihar, Preet Vihar Tehsil, East Delhi, Delhi, 110051, India",
+        "road_type": "residential",
+        "road_name": ""
       }
     },
     {
@@ -85,7 +92,10 @@
         "stop_id": "6.3",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "6.3"
+        "note_raw": "6.3",
+        "address": "Vijay Chowk Road, Laxmi Nagar, Preet Vihar Tehsil, East Delhi, Delhi, 110031, India",
+        "road_type": "residential",
+        "road_name": "Vijay Chowk Road"
       }
     },
     {
@@ -113,7 +123,10 @@
         "stop_id": "6.2",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "6.2"
+        "note_raw": "6.2",
+        "address": "Delhi\u2013Dehradun Expressway, Laxmi Nagar, East Delhi, Delhi, 110031, India",
+        "road_type": "trunk",
+        "road_name": "Delhi\u2013Dehradun Expressway"
       }
     },
     {
@@ -141,7 +154,10 @@
         "stop_id": "6.1",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "6.1"
+        "note_raw": "6.1",
+        "address": "Valmiki Colony, Vivek Vihar Tehsil, Shahdara, Delhi, 420420, India",
+        "road_type": "tertiary",
+        "road_name": ""
       }
     },
     {
@@ -169,7 +185,10 @@
         "stop_id": "20.12",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "20.12"
+        "note_raw": "20.12",
+        "address": "Alipur, Alipur Tehsil, North Delhi, Delhi, 110036, India",
+        "road_type": "residential",
+        "road_name": ""
       }
     },
     {
@@ -197,7 +216,10 @@
         "stop_id": "20.11",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "20.11"
+        "note_raw": "20.11",
+        "address": "Alipur Tehsil, North Delhi, Delhi, 110036, India",
+        "road_type": "residential",
+        "road_name": ""
       }
     },
     {
@@ -256,7 +278,10 @@
         "stop_id": "20.9",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "20.9"
+        "note_raw": "20.9",
+        "address": "Narela Tehsil, North Delhi, Delhi, 110040, India",
+        "road_type": "residential",
+        "road_name": ""
       }
     },
     {
@@ -284,7 +309,10 @@
         "stop_id": "20.8",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "20.8"
+        "note_raw": "20.8",
+        "address": "Sector B-4, Narela Tehsil, North Delhi, Delhi, 110082, India",
+        "road_type": "tertiary",
+        "road_name": ""
       }
     },
     {
@@ -312,7 +340,10 @@
         "stop_id": "20.7",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "20.7"
+        "note_raw": "20.7",
+        "address": "Sector B-4, Narela Tehsil, North Delhi, Delhi, 110040, India",
+        "road_type": "residential",
+        "road_name": ""
       }
     },
     {
@@ -340,7 +371,10 @@
         "stop_id": "20.6",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "20.6"
+        "note_raw": "20.6",
+        "address": "Sector A-7, Narela Tehsil, North Delhi, Delhi, 110040, India",
+        "road_type": "tertiary",
+        "road_name": ""
       }
     },
     {
@@ -368,7 +402,10 @@
         "stop_id": "20.5",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "20.5"
+        "note_raw": "20.5",
+        "address": "Narela, Narela Tehsil, North Delhi, Delhi, 110040, India",
+        "road_type": "residential",
+        "road_name": ""
       }
     },
     {
@@ -396,7 +433,10 @@
         "stop_id": "20.4",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "20.4"
+        "note_raw": "20.4",
+        "address": "Sector A-9, Narela Tehsil, North Delhi, Delhi, 110040, India",
+        "road_type": "tertiary",
+        "road_name": ""
       }
     },
     {
@@ -424,7 +464,10 @@
         "stop_id": "20.3",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "20.3"
+        "note_raw": "20.3",
+        "address": "Sector A-6, Narela Tehsil, North Delhi, Delhi, 110040, India",
+        "road_type": "residential",
+        "road_name": ""
       }
     },
     {
@@ -452,7 +495,10 @@
         "stop_id": "20.2",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "20.2"
+        "note_raw": "20.2",
+        "address": "Piyau Maniyari Road, Narela, Narela Tehsil, North Delhi, Delhi, 110040, India",
+        "road_type": "tertiary",
+        "road_name": "Piyau Maniyari Road"
       }
     },
     {
@@ -542,7 +588,10 @@
         "stop_id": "47.8",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "47.8"
+        "note_raw": "47.8",
+        "address": "Doctor KB Hedgewar Marg, Jahangir Puri, Model Town Tehsil, North Delhi, Delhi, 110033, India",
+        "road_type": "trunk",
+        "road_name": "Doctor KB Hedgewar Marg"
       }
     },
     {
@@ -570,7 +619,10 @@
         "stop_id": "47.7",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "47.7"
+        "note_raw": "47.7",
+        "address": "Bhalaswa Golf Course, ITI Road, K Block, Model Town Tehsil, North Delhi, Delhi, 110033, India",
+        "road_type": null,
+        "road_name": "Bhalaswa Golf Course"
       }
     },
     {
@@ -598,7 +650,10 @@
         "stop_id": "47.6",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "47.6"
+        "note_raw": "47.6",
+        "address": "Kalander Colony, Basant Dada Patil Nagar, Civil Lines Tehsil, Central Delhi, Delhi, 110042, India",
+        "road_type": "tertiary",
+        "road_name": ""
       }
     },
     {
@@ -626,7 +681,10 @@
         "stop_id": "47.5",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "47.5"
+        "note_raw": "47.5",
+        "address": "Civil Lines Tehsil, Central Delhi, Delhi, 110084, India",
+        "road_type": "residential",
+        "road_name": ""
       }
     },
     {
@@ -654,7 +712,10 @@
         "stop_id": "47.4",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "47.4"
+        "note_raw": "47.4",
+        "address": "Civil Lines Tehsil, Central Delhi, Delhi, 110084, India",
+        "road_type": "residential",
+        "road_name": ""
       }
     },
     {
@@ -682,7 +743,10 @@
         "stop_id": "47.3",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "47.3"
+        "note_raw": "47.3",
+        "address": "Civil Lines Tehsil, Central Delhi, Delhi, 110005, India",
+        "road_type": "residential",
+        "road_name": ""
       }
     },
     {
@@ -710,7 +774,10 @@
         "stop_id": "47.2",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "47.2"
+        "note_raw": "47.2",
+        "address": "Burari road, Civil Lines Tehsil, Central Delhi, Delhi, 110005, India",
+        "road_type": "secondary",
+        "road_name": "Burari road"
       }
     },
     {
@@ -738,7 +805,10 @@
         "stop_id": "47.1",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "47.1"
+        "note_raw": "47.1",
+        "address": "C Block, Indraprastha Colony, Civil Lines Tehsil, Central Delhi, Delhi, 110042, India",
+        "road_type": "residential",
+        "road_name": ""
       }
     },
     {
@@ -766,7 +836,10 @@
         "stop_id": "32.8",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "32.8"
+        "note_raw": "32.8",
+        "address": "Mahatma Gandhi Marg Bridge, Lohar Basti, Naraina, New Delhi, Delhi, 110064, India",
+        "road_type": "primary",
+        "road_name": "Mahatma Gandhi Marg Bridge"
       }
     },
     {
@@ -794,7 +867,10 @@
         "stop_id": "32.7",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "32.7"
+        "note_raw": "32.7",
+        "address": "Ramesh Nagar, Saraswati Garden, Patel Nagar, West Delhi, Delhi, 110026, India",
+        "road_type": "residential",
+        "road_name": ""
       }
     },
     {
@@ -853,7 +929,10 @@
         "stop_id": "32.6",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "32.6"
+        "note_raw": "32.6",
+        "address": "Brahma's - Taste of Trust, B-3/7, Shivaji Marg, DLF Indl Area, Patel Nagar, West Delhi, Delhi, 110015, India",
+        "road_type": null,
+        "road_name": "Brahma's - Taste of Trust"
       }
     },
     {
@@ -881,7 +960,10 @@
         "stop_id": "32.5",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "32.5"
+        "note_raw": "32.5",
+        "address": "Bali Nagar, Patel Nagar, West Delhi, Delhi, 110027, India",
+        "road_type": "residential",
+        "road_name": ""
       }
     },
     {
@@ -909,7 +991,10 @@
         "stop_id": "32.4",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "32.4"
+        "note_raw": "32.4",
+        "address": "Tagore Garden Extension, Patel Nagar, West Delhi, Delhi, 110027, India",
+        "road_type": "residential",
+        "road_name": ""
       }
     },
     {
@@ -937,7 +1022,10 @@
         "stop_id": "32.3",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "32.3"
+        "note_raw": "32.3",
+        "address": "Patel Nagar, West Delhi, Delhi, 110027, India",
+        "road_type": "residential",
+        "road_name": ""
       }
     },
     {
@@ -965,7 +1053,10 @@
         "stop_id": "32.2",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "32.2"
+        "note_raw": "32.2",
+        "address": "Punjabi Bagh Tehsil, West Delhi, Delhi, 110056, India",
+        "road_type": "residential",
+        "road_name": ""
       }
     },
     {
@@ -993,7 +1084,10 @@
         "stop_id": "81.5",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "81.5"
+        "note_raw": "81.5",
+        "address": "Nangloi Saiyed, Paschim Vihar, Punjabi Bagh Tehsil, West Delhi, Delhi, 110087, India",
+        "road_type": "residential",
+        "road_name": ""
       }
     },
     {
@@ -1021,7 +1115,10 @@
         "stop_id": "81.4",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "81.4"
+        "note_raw": "81.4",
+        "address": "Paschim Vihar, Punjabi Bagh Tehsil, West Delhi, Delhi, 110087, India",
+        "road_type": "tertiary",
+        "road_name": ""
       }
     },
     {
@@ -1049,7 +1146,10 @@
         "stop_id": "81.3",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "81.3"
+        "note_raw": "81.3",
+        "address": "Nangloi, Punjabi Bagh Tehsil, West Delhi, Delhi, 110087, India",
+        "road_type": "tertiary",
+        "road_name": ""
       }
     },
     {
@@ -1077,7 +1177,10 @@
         "stop_id": "81.1",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "81.1"
+        "note_raw": "81.1",
+        "address": "Mundka, Punjabi Bagh Tehsil, West Delhi, Delhi, 110041, India",
+        "road_type": "tertiary",
+        "road_name": ""
       }
     },
     {
@@ -1105,7 +1208,10 @@
         "stop_id": "79.3",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "79.3"
+        "note_raw": "79.3",
+        "address": "Kanjhawalan Tehsil, North West Delhi, Delhi, 110081, India",
+        "road_type": "residential",
+        "road_name": ""
       }
     },
     {
@@ -1133,7 +1239,10 @@
         "stop_id": "79.2",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "79.2"
+        "note_raw": "79.2",
+        "address": "Kanjhawalan Tehsil, North West Delhi, Delhi, 110081, India",
+        "road_type": "residential",
+        "road_name": ""
       }
     },
     {
@@ -1161,7 +1270,10 @@
         "stop_id": "79.1",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "79.1"
+        "note_raw": "79.1",
+        "address": "Kanjhawalan Tehsil, North West Delhi, Delhi, 110081, India",
+        "road_type": "tertiary",
+        "road_name": ""
       }
     },
     {
@@ -1189,7 +1301,10 @@
         "stop_id": "16.8",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "16.8"
+        "note_raw": "16.8",
+        "address": "Kanjhawalan Tehsil, North West Delhi, Delhi, 110081, India",
+        "road_type": "residential",
+        "road_name": ""
       }
     },
     {
@@ -1217,7 +1332,10 @@
         "stop_id": "16.7",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "16.7"
+        "note_raw": "16.7",
+        "address": "Kanjhawalan Tehsil, North West Delhi, Delhi, 110081, India",
+        "road_type": "tertiary",
+        "road_name": ""
       }
     },
     {
@@ -1245,7 +1363,10 @@
         "stop_id": "16.6",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "16.6"
+        "note_raw": "16.6",
+        "address": "Kanjhawalan Tehsil, North West Delhi, Delhi, 110081, India",
+        "road_type": "tertiary",
+        "road_name": ""
       }
     },
     {
@@ -1273,7 +1394,10 @@
         "stop_id": "16.5",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "16.5"
+        "note_raw": "16.5",
+        "address": "Punjabi Bagh Tehsil, West Delhi, Delhi, 110081, India",
+        "road_type": "tertiary",
+        "road_name": ""
       }
     },
     {
@@ -1301,7 +1425,10 @@
         "stop_id": "16.4",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "16.4"
+        "note_raw": "16.4",
+        "address": "Punjabi Bagh Tehsil, West Delhi, Delhi, 110072, India",
+        "road_type": "tertiary",
+        "road_name": ""
       }
     },
     {
@@ -1329,7 +1456,10 @@
         "stop_id": "16.3",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "16.3"
+        "note_raw": "16.3",
+        "address": "Punjabi Bagh Tehsil, West Delhi, Delhi, 110081, India",
+        "road_type": "tertiary",
+        "road_name": ""
       }
     },
     {
@@ -1357,7 +1487,10 @@
         "stop_id": "16.2",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "16.2"
+        "note_raw": "16.2",
+        "address": "DSIIDC MLM Hub, Rohini Tehsil, North West Delhi, Delhi, 110081, India",
+        "road_type": "residential",
+        "road_name": ""
       }
     },
     {
@@ -1385,7 +1518,10 @@
         "stop_id": "16.1",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "16.1"
+        "note_raw": "16.1",
+        "address": "Mundka, Punjabi Bagh Tehsil, West Delhi, Delhi, 110041, India",
+        "road_type": "residential",
+        "road_name": ""
       }
     },
     {
@@ -1413,7 +1549,10 @@
         "stop_id": "42.2",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "42.2"
+        "note_raw": "42.2",
+        "address": "Hailey Road, Connaught Place, Chanakya Puri Tehsil, New Delhi, Delhi, 020626, India",
+        "road_type": "residential",
+        "road_name": "Hailey Road"
       }
     },
     {
@@ -1441,7 +1580,10 @@
         "stop_id": "42.1",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "42.1"
+        "note_raw": "42.1",
+        "address": "Kasturba Gandhi Marg, Connaught Place, Chanakya Puri Tehsil, New Delhi, Delhi, 020626, India",
+        "road_type": "secondary",
+        "road_name": "Kasturba Gandhi Marg"
       }
     },
     {
@@ -1469,7 +1611,10 @@
         "stop_id": "13.4",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "13.4"
+        "note_raw": "13.4",
+        "address": "Najafgarh, Najafgarh Tehsil, South West Delhi, Delhi, 110043, India",
+        "road_type": "tertiary",
+        "road_name": ""
       }
     },
     {
@@ -1497,7 +1642,10 @@
         "stop_id": "13.3",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "13.3"
+        "note_raw": "13.3",
+        "address": "Nangloi road, Nangloi Extension, Punjabi Bagh Tehsil, West Delhi, Delhi, 110041, India",
+        "road_type": "primary",
+        "road_name": "Nangloi road"
       }
     },
     {
@@ -1525,7 +1673,10 @@
         "stop_id": "13.2",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "13.2"
+        "note_raw": "13.2",
+        "address": "Peer Baba Road, Sethi Enclave, Kumhar Colony, Patel Nagar, West Delhi, Delhi, 110059, India",
+        "road_type": "residential",
+        "road_name": "Peer Baba Road"
       }
     },
     {
@@ -1553,7 +1704,10 @@
         "stop_id": "13.1",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "13.1"
+        "note_raw": "13.1",
+        "address": "S, Sainik Enclave III, Patel Nagar, West Delhi, Delhi, 110059, India",
+        "road_type": "residential",
+        "road_name": ""
       }
     },
     {
@@ -1581,7 +1735,10 @@
         "stop_id": "78.3",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "78.3"
+        "note_raw": "78.3",
+        "address": "JJ Colony, Lok Nayak Puram, Punjabi Bagh Tehsil, West Delhi, Delhi, 110041, India",
+        "road_type": "residential",
+        "road_name": ""
       }
     },
     {
@@ -1609,7 +1766,10 @@
         "stop_id": "78.2",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "78.2"
+        "note_raw": "78.2",
+        "address": "JJ Colony, Lok Nayak Puram, Punjabi Bagh Tehsil, West Delhi, Delhi, 110041, India",
+        "road_type": "residential",
+        "road_name": ""
       }
     },
     {
@@ -1637,7 +1797,10 @@
         "stop_id": "78.1",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "78.1"
+        "note_raw": "78.1",
+        "address": "Shiv Vihar, Patel Nagar, West Delhi, Delhi, 110041, India",
+        "road_type": "residential",
+        "road_name": ""
       }
     },
     {
@@ -1665,7 +1828,10 @@
         "stop_id": "10.4",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "10.4"
+        "note_raw": "10.4",
+        "address": "Gurudwara Road, Widow Colony, Tilak Nagar, Rajouri Garden Tehsil, West Delhi, Delhi, 110018, India",
+        "road_type": "residential",
+        "road_name": "Gurudwara Road"
       }
     },
     {
@@ -1693,7 +1859,10 @@
         "stop_id": "10.3",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "10.3"
+        "note_raw": "10.3",
+        "address": "Gurudwara Road, Widow Colony, Tilak Nagar, Rajouri Garden Tehsil, West Delhi, Delhi, 110018, India",
+        "road_type": "tertiary",
+        "road_name": "Gurudwara Road"
       }
     },
     {
@@ -1721,7 +1890,10 @@
         "stop_id": "10.2",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "10.2"
+        "note_raw": "10.2",
+        "address": "Najafgarh Nangloi Road, Nangloi Extension, Punjabi Bagh Tehsil, West Delhi, Delhi, 110041, India",
+        "road_type": "primary",
+        "road_name": "Najafgarh Nangloi Road"
       }
     },
     {
@@ -1749,7 +1921,10 @@
         "stop_id": "10.1",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "10.1"
+        "note_raw": "10.1",
+        "address": "Najafgarh Nangloi Road, Baprola, Najafgarh, Punjabi Bagh Tehsil, West Delhi, Delhi, 110043, India",
+        "road_type": "primary",
+        "road_name": "Najafgarh Nangloi Road"
       }
     },
     {
@@ -1777,7 +1952,10 @@
         "stop_id": "15.8",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "15.8"
+        "note_raw": "15.8",
+        "address": "Punjabi Bagh Tehsil, West Delhi, Delhi, 124507, India",
+        "road_type": "residential",
+        "road_name": ""
       }
     },
     {
@@ -1805,7 +1983,10 @@
         "stop_id": "15.7",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "15.7"
+        "note_raw": "15.7",
+        "address": "Najafgarh Tehsil, South West Delhi, Delhi, 110072, India",
+        "road_type": "residential",
+        "road_name": ""
       }
     },
     {
@@ -1833,7 +2014,10 @@
         "stop_id": "15.6",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "15.6"
+        "note_raw": "15.6",
+        "address": "Najafgarh Bahadurgarh Road, Jharodha Kalan, Najafgarh Tehsil, South West Delhi, Delhi, 110072, India",
+        "road_type": "secondary",
+        "road_name": "Najafgarh Bahadurgarh Road"
       }
     },
     {
@@ -1861,7 +2045,10 @@
         "stop_id": "15.5",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "15.5"
+        "note_raw": "15.5",
+        "address": "Najafgarh, Najafgarh Tehsil, South West Delhi, Delhi, 110043, India",
+        "road_type": "residential",
+        "road_name": ""
       }
     },
     {
@@ -1920,7 +2107,10 @@
         "stop_id": "15.3",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "15.3"
+        "note_raw": "15.3",
+        "address": "Najafgarh Bahadurgarh Road, Najafgarh, Najafgarh Tehsil, South West Delhi, Delhi, 110043, India",
+        "road_type": "secondary",
+        "road_name": "Najafgarh Bahadurgarh Road"
       }
     },
     {
@@ -1948,7 +2138,10 @@
         "stop_id": "15.2",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "15.2"
+        "note_raw": "15.2",
+        "address": "Surakhpur, Najafgarh, Najafgarh Tehsil, South West Delhi, Delhi, 110043, India",
+        "road_type": "residential",
+        "road_name": ""
       }
     },
     {
@@ -1976,7 +2169,10 @@
         "stop_id": "15.1",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "15.1"
+        "note_raw": "15.1",
+        "address": "Najafgarh, Najafgarh Tehsil, South West Delhi, Delhi, 110072, India",
+        "road_type": "tertiary",
+        "road_name": ""
       }
     },
     {
@@ -2004,7 +2200,10 @@
         "stop_id": "43.7",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "43.7"
+        "note_raw": "43.7",
+        "address": "Ramakrishna Ashram Marg, Palika Niketan, DIZ Area, Chanakya Puri Tehsil, New Delhi, Delhi, 110055, India",
+        "road_type": "tertiary",
+        "road_name": "Ramakrishna Ashram Marg"
       }
     },
     {
@@ -2032,7 +2231,10 @@
         "stop_id": "43.6",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "43.6"
+        "note_raw": "43.6",
+        "address": "Arya Samaj Road, 12-B, Karol Bagh, Civil Lines Tehsil, Central Delhi, Delhi, 110060, India",
+        "road_type": "tertiary",
+        "road_name": "Arya Samaj Road"
       }
     },
     {
@@ -2060,7 +2262,10 @@
         "stop_id": "43.5",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "43.5"
+        "note_raw": "43.5",
+        "address": "Moti Bagh (East), Anand Parbat, Civil Lines Tehsil, Central Delhi, Delhi, 110052, India",
+        "road_type": "residential",
+        "road_name": ""
       }
     },
     {
@@ -2088,7 +2293,10 @@
         "stop_id": "43.4",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "43.4"
+        "note_raw": "43.4",
+        "address": "Rama Park, Civil Lines Tehsil, Central Delhi, Delhi, 110007, India",
+        "road_type": "residential",
+        "road_name": ""
       }
     },
     {
@@ -2116,7 +2324,10 @@
         "stop_id": "43.2",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "43.2"
+        "note_raw": "43.2",
+        "address": "Moti Bagh (East), Sarai Rohilla, Civil Lines Tehsil, Central Delhi, Delhi, 110052, India",
+        "road_type": "residential",
+        "road_name": ""
       }
     },
     {
@@ -2144,7 +2355,10 @@
         "stop_id": "43.1",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "43.1"
+        "note_raw": "43.1",
+        "address": "Rohtak Road, Nangloi, Punjabi Bagh Tehsil, West Delhi, Delhi, 110083, India",
+        "road_type": "trunk",
+        "road_name": "Rohtak Road"
       }
     },
     {
@@ -2172,7 +2386,10 @@
         "stop_id": "80.2",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "80.2"
+        "note_raw": "80.2",
+        "address": "Mundka, Punjabi Bagh Tehsil, West Delhi, Delhi, 110081, India",
+        "road_type": "primary",
+        "road_name": ""
       }
     },
     {
@@ -2200,7 +2417,10 @@
         "stop_id": "80.1",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "80.1"
+        "note_raw": "80.1",
+        "address": "UER II, Begum Pur, Kanjhawalan Tehsil, North West Delhi, Delhi, 110086, India",
+        "road_type": "primary",
+        "road_name": "UER II"
       }
     },
     {
@@ -2228,7 +2448,10 @@
         "stop_id": "23.5",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "23.5"
+        "note_raw": "23.5",
+        "address": "Sector 21, Rohini, Rohini Tehsil, North West Delhi, Delhi, 110086, India",
+        "road_type": "residential",
+        "road_name": ""
       }
     },
     {
@@ -2256,7 +2479,10 @@
         "stop_id": "23.5",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "23.5"
+        "note_raw": "23.5",
+        "address": "Sector 20, Rohini, Rohini Tehsil, North West Delhi, Delhi, 110086, India",
+        "road_type": "residential",
+        "road_name": ""
       }
     },
     {
@@ -2284,7 +2510,10 @@
         "stop_id": "23.3",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "23.3"
+        "note_raw": "23.3",
+        "address": "Sector 20, Rohini, Rohini Tehsil, North West Delhi, Delhi, 110086, India",
+        "road_type": "residential",
+        "road_name": ""
       }
     },
     {
@@ -2312,7 +2541,10 @@
         "stop_id": "23.3",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "23.3"
+        "note_raw": "23.3",
+        "address": "100 Feet road, Sector 20, Rohini, Rohini Tehsil, North West Delhi, Delhi, 110086, India",
+        "road_type": "tertiary",
+        "road_name": "100 Feet road"
       }
     },
     {
@@ -2340,7 +2572,10 @@
         "stop_id": "23.2",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "23.2"
+        "note_raw": "23.2",
+        "address": "Gali Number 4, Sector 20, Rohini, Rohini Tehsil, North West Delhi, Delhi, 110086, India",
+        "road_type": "residential",
+        "road_name": "Gali Number 4"
       }
     },
     {
@@ -2399,7 +2634,10 @@
         "stop_id": "31.9",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "31.9"
+        "note_raw": "31.9",
+        "address": "Vidya Vihar, Saraswati Vihar Tehsil, North West Delhi, Delhi, 110056, India",
+        "road_type": "tertiary",
+        "road_name": ""
       }
     },
     {
@@ -2427,7 +2665,10 @@
         "stop_id": "31.7",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "31.7"
+        "note_raw": "31.7",
+        "address": "Kanjhawala road, Sector 2, Mangolpur Khurd, Rohini Tehsil, North West Delhi, Delhi, 110083, India",
+        "road_type": "secondary",
+        "road_name": "Kanjhawala road"
       }
     },
     {
@@ -2455,7 +2696,10 @@
         "stop_id": "31.5",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "31.5"
+        "note_raw": "31.5",
+        "address": "Sector 2, Rohini, Saraswati Vihar Tehsil, North West Delhi, Delhi, 110083, India",
+        "road_type": "residential",
+        "road_name": ""
       }
     },
     {
@@ -2483,7 +2727,10 @@
         "stop_id": "31.4",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "31.4"
+        "note_raw": "31.4",
+        "address": "Rohini Sports Complex, Road Number B-5, Sector 14, Rohini, Alipur Tehsil, North Delhi, Delhi, 110085, India",
+        "road_type": null,
+        "road_name": "Rohini Sports Complex"
       }
     },
     {
@@ -2511,7 +2758,10 @@
         "stop_id": "31.4",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "31.4"
+        "note_raw": "31.4",
+        "address": "Pitampura, Saraswati Vihar Tehsil, North West Delhi, Delhi, 110034, India",
+        "road_type": "tertiary",
+        "road_name": ""
       }
     },
     {
@@ -2539,7 +2789,10 @@
         "stop_id": "31.2",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "31.2"
+        "note_raw": "31.2",
+        "address": "Rohit Kunj, Punjabi Bagh, Saraswati Vihar Tehsil, North West Delhi, Delhi, 110034, India",
+        "road_type": "residential",
+        "road_name": ""
       }
     },
     {
@@ -2567,7 +2820,10 @@
         "stop_id": "31.2",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "31.2"
+        "note_raw": "31.2",
+        "address": "Lala Jagat Narayan marg, Kapil Vihar, Pitampura, Saraswati Vihar Tehsil, North West Delhi, Delhi, 110034, India",
+        "road_type": "secondary",
+        "road_name": "Lala Jagat Narayan marg"
       }
     },
     {
@@ -2595,7 +2851,10 @@
         "stop_id": "31.1",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "31.1"
+        "note_raw": "31.1",
+        "address": "Maharaja Nahar Singh Marg, Ganeshpura, Ashok Vihar, Saraswati Vihar Tehsil, North West Delhi, Delhi, 110035, India",
+        "road_type": "secondary",
+        "road_name": "Maharaja Nahar Singh Marg"
       }
     },
     {
@@ -2623,7 +2882,10 @@
         "stop_id": "43.2",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "43.2"
+        "note_raw": "43.2",
+        "address": "Azad Park Road, Padam Nagar, Civil Lines Tehsil, Central Delhi, Delhi, 110007, India",
+        "road_type": "residential",
+        "road_name": "Azad Park Road"
       }
     },
     {
@@ -2651,7 +2913,10 @@
         "stop_id": "43.1",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "43.1"
+        "note_raw": "43.1",
+        "address": "Railway Quarters, Civil Lines Tehsil, Central Delhi, Delhi, 110007, India",
+        "road_type": "residential",
+        "road_name": ""
       }
     },
     {
@@ -2679,7 +2944,10 @@
         "stop_id": "50.3",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "50.3"
+        "note_raw": "50.3",
+        "address": "New Delhi Municipal Corporation (NDMC), 15, Sansad Marg, Connaught Place, Chanakya Puri Tehsil, New Delhi, Delhi, 110001, India",
+        "road_type": null,
+        "road_name": "New Delhi Municipal Corporation (NDMC)"
       }
     },
     {
@@ -2707,7 +2975,10 @@
         "stop_id": "50.2",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "50.2"
+        "note_raw": "50.2",
+        "address": "H.C. Sen Marg, Chandni Chowk, Old Delhi, Kotwali Tehsil, Central Delhi, Delhi, 110006, India",
+        "road_type": "unclassified",
+        "road_name": "H.C. Sen Marg"
       }
     },
     {
@@ -2735,7 +3006,10 @@
         "stop_id": "50.1",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "50.1"
+        "note_raw": "50.1",
+        "address": "Court Road, Civil Lines, Civil Lines Tehsil, Central Delhi, Delhi, 110054, India",
+        "road_type": "tertiary",
+        "road_name": "Court Road"
       }
     },
     {
@@ -2763,7 +3037,10 @@
         "stop_id": "Test",
         "is_traffic_stop": false,
         "is_traffic_jam": false,
-        "note_raw": "Test"
+        "note_raw": "Test",
+        "address": "Street No: 5, East School Block, Preet Vihar Tehsil, East Delhi, Delhi, 110091, India",
+        "road_type": "residential",
+        "road_name": "Street No: 5"
       }
     }
   ]

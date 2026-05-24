@@ -1,6 +1,89 @@
 # Street Air Quality
 
-Street-level air pollution measurements from Delhi and other cities.
+Street-level air pollution measurements and analysis tools.
+
+## Installation
+
+```bash
+pip install streetaqi
+
+# With LLM support (for image annotation)
+pip install streetaqi[llm]
+
+# With map support
+pip install streetaqi[maps]
+
+# All optional dependencies
+pip install streetaqi[all]
+```
+
+## CLI Commands
+
+### Analyze pollution data
+
+Run statistical analysis with publication-ready outputs:
+
+```bash
+streetaqi analyze --readings exports/pollution_logs.csv --output output/analysis
+```
+
+Outputs:
+- `output/analysis/figs/fig1_map.html` - Interactive map color-coded by PM2.5 level
+- `output/analysis/figs/fig2_histogram.pdf` - PM2.5 and CO distributions
+- `output/analysis/figs/fig3_boxplot_by_day.pdf` - Daily variation
+- `output/analysis/figs/fig4_pm_co_scatter.pdf` - PM2.5 vs CO correlation
+- `output/analysis/tabs/*.tex` - LaTeX tables for publication
+
+### OCR sensor images
+
+Extract PM2.5 and CO readings from air quality sensor photos using Claude or Gemini APIs:
+
+```bash
+streetaqi annotate \
+  --images "exports/images/pollution/**/*.jpg" \
+  --model gemini-2.0-flash \
+  --manifest exports/manifest.json \
+  --output output/annotations/
+```
+
+Options:
+- `--model`: `gemini-2.0-flash` (default), `claude-haiku-4-5`
+- `--batch`: Use batch API for 50% cost savings (async)
+- `--manifest`: Include logged values for comparison
+
+### QC viewer
+
+Generate HTML viewer for quality control:
+
+```bash
+streetaqi viewer \
+  --readings output/annotations/pollution_readings_*.json \
+  --output output/annotations/viewer.html
+```
+
+The viewer shows images with OCR readings, compares to logged values, and allows manual corrections. Export corrected data as JSON or CSV.
+
+## Delhi Air Quality (May 2026)
+
+Based on 98 PM2.5 readings collected across 5 days:
+
+| Statistic | PM2.5 (μg/m³) | CO (μg/m³) |
+|-----------|---------------|-----------|
+| Mean | 117.6 | 541 |
+| Median | 94.0 | 415 |
+| Min | 22.0 | 11 |
+| Max | 584.0 | 1497 |
+
+### Threshold Exceedance (EPA 2024 Standards)
+
+| Threshold | % Readings |
+|-----------|-----------|
+| Above Good (>9 μg/m³) | 100% |
+| Above Moderate (>35.4 μg/m³) | 99% |
+| Unhealthy for Sensitive Groups (>55.4 μg/m³) | 99% |
+| Unhealthy (>125.4 μg/m³) | 21% |
+
+**100% of readings exceeded the EPA "Good" air quality threshold.** Nearly all readings (99%) were in the "Unhealthy for Sensitive Groups" category or worse.
 
 ## Data
 

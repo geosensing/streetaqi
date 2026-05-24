@@ -1,0 +1,68 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "streetaqi"
+version = "0.1.0"
+description = "Street-level air quality analysis tools"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.13"
+authors = [{ name = "Gaurav Sood" }]
+keywords = ["air-quality", "pollution", "pm25", "analysis"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Atmospheric Science",
+]
+dependencies = [
+    "click>=8.1",
+    "requests>=2.31",
+    "pandas>=2.2",
+    "numpy>=2.0",
+    "matplotlib>=3.9",
+    "pyarrow>=17.0",
+]
+
+[project.optional-dependencies]
+llm = [
+    "anthropic>=0.34",
+    "google-genai>=1.0",
+]
+maps = [
+    "folium>=0.17",
+]
+dev = [
+    "pytest>=8.0",
+    "ruff>=0.4",
+]
+all = [
+    "streetaqi[llm,maps,dev]",
+]
+
+[project.scripts]
+streetaqi = "streetaqi.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/soodoku/streetaqi"
+Repository = "https://github.com/soodoku/streetaqi"
+Issues = "https://github.com/soodoku/streetaqi/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/streetaqi"]
+
+[tool.ruff]
+target-version = "py313"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "W", "UP"]
+ignore = ["E501"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

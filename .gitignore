@@ -1,0 +1,34 @@
+# Cache files
+**/location_cache.json
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.eggs/
+dist/
+build/
+
+# IDE/Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Jupyter
+.ipynb_checkpoints/
+
+# uv
+uv.lock
+
+# Intermediate outputs
+output/annotations/
+
+# Rider images (large, download separately)
+**/images/
