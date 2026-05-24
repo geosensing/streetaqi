@@ -2,6 +2,28 @@
 
 Street-level air pollution measurements and analysis tools.
 
+## Delhi Air Quality (May 2026)
+
+Based on 98 PM2.5 readings collected across 5 days:
+
+| Statistic | PM2.5 (μg/m³) | CO (μg/m³) |
+|-----------|---------------|-----------|
+| Mean | 117.6 | 541 |
+| Median | 94.0 | 415 |
+| Min | 22.0 | 11 |
+| Max | 584.0 | 1497 |
+
+### Threshold Exceedance (EPA 2024 Standards)
+
+| Threshold | % Readings |
+|-----------|-----------|
+| Above Good (>9 μg/m³) | 100% |
+| Above Moderate (>35.4 μg/m³) | 99% |
+| Unhealthy for Sensitive Groups (>55.4 μg/m³) | 99% |
+| Unhealthy (>125.4 μg/m³) | 21% |
+
+**100% of readings exceeded the EPA "Good" air quality threshold.** Nearly all readings (99%) were in the "Unhealthy for Sensitive Groups" category or worse.
+
 ## Installation
 
 ```bash
@@ -62,28 +84,6 @@ streetaqi viewer \
 ```
 
 The viewer shows images with OCR readings, compares to logged values, and allows manual corrections. Export corrected data as JSON or CSV.
-
-## Delhi Air Quality (May 2026)
-
-Based on 98 PM2.5 readings collected across 5 days:
-
-| Statistic | PM2.5 (μg/m³) | CO (μg/m³) |
-|-----------|---------------|-----------|
-| Mean | 117.6 | 541 |
-| Median | 94.0 | 415 |
-| Min | 22.0 | 11 |
-| Max | 584.0 | 1497 |
-
-### Threshold Exceedance (EPA 2024 Standards)
-
-| Threshold | % Readings |
-|-----------|-----------|
-| Above Good (>9 μg/m³) | 100% |
-| Above Moderate (>35.4 μg/m³) | 99% |
-| Unhealthy for Sensitive Groups (>55.4 μg/m³) | 99% |
-| Unhealthy (>125.4 μg/m³) | 21% |
-
-**100% of readings exceeded the EPA "Good" air quality threshold.** Nearly all readings (99%) were in the "Unhealthy for Sensitive Groups" category or worse.
 
 ## Data
 

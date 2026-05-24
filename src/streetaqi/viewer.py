@@ -12,12 +12,76 @@ def image_to_base64(image_path: Path) -> str:
     return f"data:image/jpeg;base64,{data}"
 
 
+def normalize_readings(data: dict) -> list[dict]:
+    """Normalize readings to a common format for the viewer.
+
+    Handles both OCR output format and raw readings.json format.
+    """
+    readings = data.get("readings", [])
+    if not readings:
+        return []
+
+    first = readings[0]
+    is_ocr_format = (
+        "reading" in first
+        and isinstance(first["reading"], dict)
+        and "status" in first.get("reading", {})
+    )
+
+    if is_ocr_format:
+        return readings
+
+    normalized = []
+
+    for r in readings:
+        reading_data = r.get("reading", {})
+        metadata = r.get("metadata", {})
+
+        frame_path = r.get("frame_path", "")
+        if frame_path:
+            img_path = Path(frame_path)
+        else:
+            local_path = r.get("image", {}).get("local_path", "")
+            img_path = Path(local_path) if local_path else Path("")
+
+        pm25 = reading_data.get("pm25")
+        co = reading_data.get("co")
+
+        if pm25 is not None and co is not None:
+            status = "ok"
+        elif pm25 is not None or co is not None:
+            status = "partial_read"
+        else:
+            status = "display_unreadable"
+
+        normalized.append(
+            {
+                "id": r.get("id", ""),
+                "image_path": str(img_path),
+                "day": metadata.get("day", r.get("day", "?")),
+                "itinerary_id": metadata.get("itinerary", r.get("itinerary_id", "?")),
+                "gps": r.get("gps", {}),
+                "reading": {
+                    "pm25": pm25,
+                    "co": co,
+                    "status": status,
+                    "confidence": 1.0,
+                },
+                "logged_pm25": pm25,
+                "logged_co": co,
+                "metadata": metadata,
+            }
+        )
+
+    return normalized
+
+
 def generate_html(readings_path: Path, output_path: Path | None = None) -> Path:
     """Generate HTML viewer for OCR results with editable corrections."""
     with open(readings_path) as f:
         data = json.load(f)
 
-    readings = data.get("readings", [])
+    readings = normalize_readings(data)
 
     if output_path is None:
         output_path = readings_path.with_suffix(".html")
@@ -294,8 +358,15 @@ def generate_html(readings_path: Path, output_path: Path | None = None) -> Path:
         else:
             img_data = ""
 
-        known_statuses = ["ok", "partial_read", "display_unreadable", "sensor_not_found"]
-        status_class = f"status-{status}" if status in known_statuses else "status-other"
+        known_statuses = [
+            "ok",
+            "partial_read",
+            "display_unreadable",
+            "sensor_not_found",
+        ]
+        status_class = (
+            f"status-{status}" if status in known_statuses else "status-other"
+        )
 
         if status == "ok":
             filter_status = "ok"
@@ -325,12 +396,20 @@ def generate_html(readings_path: Path, output_path: Path | None = None) -> Path:
         comparison_html = ""
         if logged_pm25 is not None or logged_co is not None:
             pm25_match = (
-                pm25 == logged_pm25 if pm25 is not None and logged_pm25 is not None else None
+                pm25 == logged_pm25
+                if pm25 is not None and logged_pm25 is not None
+                else None
             )
-            co_match = co == logged_co if co is not None and logged_co is not None else None
+            co_match = (
+                co == logged_co if co is not None and logged_co is not None else None
+            )
 
-            pm25_class_cmp = "match" if pm25_match else ("mismatch" if pm25_match is False else "")
-            co_class_cmp = "match" if co_match else ("mismatch" if co_match is False else "")
+            pm25_class_cmp = (
+                "match" if pm25_match else ("mismatch" if pm25_match is False else "")
+            )
+            co_class_cmp = (
+                "match" if co_match else ("mismatch" if co_match is False else "")
+            )
 
             comparison_html = f"""
                     <div class="logged-comparison">
@@ -342,7 +421,8 @@ def generate_html(readings_path: Path, output_path: Path | None = None) -> Path:
         lat_str = f"{lat:.6f}" if isinstance(lat, (int, float)) else str(lat)
         lon_str = f"{lon:.6f}" if isinstance(lon, (int, float)) else str(lon)
 
-        html_parts.append(f"""
+        html_parts.append(
+            f"""
         <div class="card" data-status="{filter_status}" data-index="{i}">
             <div class="card-header">
                 <h3>#{i + 1} - Day {day}, Itinerary {itinerary_id}</h3>
@@ -389,7 +469,8 @@ def generate_html(readings_path: Path, output_path: Path | None = None) -> Path:
                 </div>
             </div>
         </div>
-""")
+"""
+        )
 
     html_parts.append(
         """
