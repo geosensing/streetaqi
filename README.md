@@ -53,12 +53,12 @@ Outputs:
 - `output/analysis/figs/fig1_map.html` - Interactive map color-coded by PM2.5 level
 - `output/analysis/figs/fig2_histogram.pdf` - PM2.5 and CO₂ distributions
 - `output/analysis/figs/fig3_boxplot_by_day.pdf` - Daily variation
-- `output/analysis/figs/fig4_pm_co_scatter.pdf` - PM2.5 vs CO correlation
+- `output/analysis/figs/fig4_pm_co_scatter.pdf` - PM2.5 vs CO₂ correlation
 - `output/analysis/tabs/*.tex` - LaTeX tables for publication
 
 ### OCR sensor images
 
-Extract PM2.5 and CO readings from air quality sensor photos using Claude or Gemini APIs:
+Extract PM2.5 and CO₂ readings from air quality sensor photos using Claude or Gemini APIs:
 
 ```bash
 streetaqi annotate \
@@ -92,7 +92,7 @@ The viewer shows images with OCR readings, compares to logged values, and allows
 | Metric | Count |
 |--------|-------|
 | PM2.5 readings | 98 |
-| CO readings | 98 |
+| CO₂ readings | 98 |
 | Unique locations | ~98 |
 
 ### Data Schema
@@ -137,7 +137,7 @@ Each reading in `data/rider/{city}/readings.json`:
 | Field | Description |
 |-------|-------------|
 | `reading.pm25` | PM2.5 concentration (μg/m³) |
-| `reading.co` | Carbon monoxide (ppm) |
+| `reading.co` | Carbon dioxide (ppm) |
 | `metadata.road_type` | OSM highway classification |
 | `metadata.is_traffic_stop` | Reading taken at traffic signal |
 | `metadata.is_traffic_jam` | Reading taken in traffic jam |

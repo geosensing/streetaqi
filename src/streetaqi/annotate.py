@@ -9,11 +9,11 @@ import time
 from pathlib import Path
 
 POLLUTION_OCR_PROMPT = """You are analyzing images containing a handheld air quality sensor.
-Your task is to read the PM2.5 and CO values shown on the LCD display.
+Your task is to read the PM2.5 and CO₂ values shown on the LCD display.
 
 The sensor shows:
 - PM2.5 value (μg/m³) - typically 2-3 digits
-- CO value (ppm or μg/m³) - typically 3-4 digits
+- CO₂ value (ppm) - typically 3-4 digits
 
 Respond with ONLY a JSON object in this exact format:
 {"pm25": <number or null>, "co": <number or null>, "status": "<string>", "confidence": <0.0-1.0>}
@@ -61,7 +61,9 @@ def parse_ocr_response(response_text: str) -> dict:
         text = response_text.strip()
         if text.startswith("```"):
             lines = text.split("\n")
-            text = "\n".join(lines[1:-1]) if lines[-1] == "```" else "\n".join(lines[1:])
+            text = (
+                "\n".join(lines[1:-1]) if lines[-1] == "```" else "\n".join(lines[1:])
+            )
 
         data = json.loads(text)
         return {
@@ -111,7 +113,9 @@ def load_manifest(manifest_path: Path) -> dict:
     return lookup
 
 
-def create_batch_request(image_path: Path, custom_id: str, model: str = "claude-haiku-4-5") -> dict:
+def create_batch_request(
+    image_path: Path, custom_id: str, model: str = "claude-haiku-4-5"
+) -> dict:
     """Create a single batch request for an image."""
     if not image_path.exists():
         raise FileNotFoundError(f"Image not found: {image_path}")
@@ -138,7 +142,7 @@ def create_batch_request(image_path: Path, custom_id: str, model: str = "claude-
                         },
                         {
                             "type": "text",
-                            "text": "Read the PM2.5 and CO values from this air quality sensor image.",
+                            "text": "Read the PM2.5 and CO₂ values from this air quality sensor image.",
                         },
                     ],
                 }
@@ -254,7 +258,12 @@ def process_claude_batch_results(
                     break
             reading = parse_ocr_response(response_text)
         else:
-            reading = {"pm25": None, "co": None, "status": "api_error", "confidence": 0.0}
+            reading = {
+                "pm25": None,
+                "co": None,
+                "status": "api_error",
+                "confidence": 0.0,
+            }
 
         metadata = extract_metadata_from_path(path_obj)
 
@@ -331,17 +340,22 @@ def process_gemini_sync(
                 contents=[
                     POLLUTION_OCR_PROMPT,
                     image_part,
-                    "Read the PM2.5 and CO values from this air quality sensor image.",
+                    "Read the PM2.5 and CO₂ values from this air quality sensor image.",
                 ],
             )
 
             response_text = response.text if response.text else ""
             reading = parse_ocr_response(response_text)
-            print(f"{reading['status']}: PM2.5={reading['pm25']}, CO={reading['co']}")
+            print(f"{reading['status']}: PM2.5={reading['pm25']}, CO₂={reading['co']}")
 
         except Exception as e:
             print(f"ERROR: {e}")
-            reading = {"pm25": None, "co": None, "status": "api_error", "confidence": 0.0}
+            reading = {
+                "pm25": None,
+                "co": None,
+                "status": "api_error",
+                "confidence": 0.0,
+            }
 
         metadata = extract_metadata_from_path(image_path)
 
@@ -410,7 +424,7 @@ def process_gemini_batch(
                                 }
                             },
                             {
-                                "text": "Read the PM2.5 and CO values from this air quality sensor image."
+                                "text": "Read the PM2.5 and CO₂ values from this air quality sensor image."
                             },
                         ],
                     }
@@ -456,10 +470,20 @@ def process_gemini_batch(
                         break
                 reading = parse_ocr_response(response_text)
             else:
-                reading = {"pm25": None, "co": None, "status": "no_response", "confidence": 0.0}
+                reading = {
+                    "pm25": None,
+                    "co": None,
+                    "status": "no_response",
+                    "confidence": 0.0,
+                }
         except Exception as e:
             print(f"Error parsing response {i}: {e}")
-            reading = {"pm25": None, "co": None, "status": "parse_error", "confidence": 0.0}
+            reading = {
+                "pm25": None,
+                "co": None,
+                "status": "parse_error",
+                "confidence": 0.0,
+            }
 
         metadata = extract_metadata_from_path(image_path) if image_path else {}
 
@@ -533,7 +557,9 @@ def process(
         manifest_lookup = load_manifest(manifest_path)
         print(f"Loaded manifest with {len(manifest_lookup)} pollution log entries")
 
-    model_short = model.replace("claude-", "").replace("gemini-", "").replace("-4-5", "")
+    model_short = (
+        model.replace("claude-", "").replace("gemini-", "").replace("-4-5", "")
+    )
     timestamp = time.strftime("%Y%m%d_%H%M%S")
     output_file = output_dir / f"pollution_readings_{model_short}_{timestamp}.json"
     mapping_file = output_dir / f"pollution_id_mapping_{timestamp}.json"
@@ -544,10 +570,15 @@ def process(
 
         if use_batch:
             readings = process_gemini_batch(
-                images, model, manifest_lookup=manifest_lookup, poll_interval=poll_interval
+                images,
+                model,
+                manifest_lookup=manifest_lookup,
+                poll_interval=poll_interval,
             )
         else:
-            readings = process_gemini_sync(images, model, manifest_lookup=manifest_lookup)
+            readings = process_gemini_sync(
+                images, model, manifest_lookup=manifest_lookup
+            )
 
         run_id = f"gemini_{timestamp}"
         save_readings(readings, output_file, run_id)
@@ -584,4 +615,6 @@ def process(
 def find_images(pattern: str) -> list[Path]:
     """Find images matching glob pattern."""
     paths = glob_module.glob(pattern, recursive=True)
-    return [Path(p) for p in sorted(paths) if p.lower().endswith((".jpg", ".jpeg", ".png"))]
+    return [
+        Path(p) for p in sorted(paths) if p.lower().endswith((".jpg", ".jpeg", ".png"))
+    ]

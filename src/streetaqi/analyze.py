@@ -1,7 +1,7 @@
 """Air quality analysis for streetaqi pollution data.
 
 Produces publication-ready tables (LaTeX) and figures (PDF/HTML) analyzing
-PM2.5 and CO readings against EPA/WHO health thresholds.
+PM2.5 and CO₂ readings against EPA health thresholds.
 """
 
 from pathlib import Path
@@ -19,11 +19,7 @@ PM25_THRESHOLDS = {
     "Hazardous": (225.5, float("inf")),
 }
 
-CO_THRESHOLDS = {
-    "WHO 24-hour": 4000,
-    "EPA 8-hour": 10305,
-    "WHO 1-hour": 34350,
-}
+CO2_OUTDOOR_BASELINE = 420
 
 AQI_COLORS = {
     "Good": "#00e400",
@@ -102,8 +98,14 @@ def compute_per_stop_stats(df: pd.DataFrame) -> pd.DataFrame:
             }
         )
 
-    stats = df.groupby(["day", "itinerary_id"]).apply(stop_agg, include_groups=False).reset_index()
-    stats["stop_id"] = stats["day"].astype(str) + "_" + stats["itinerary_id"].astype(str)
+    stats = (
+        df.groupby(["day", "itinerary_id"])
+        .apply(stop_agg, include_groups=False)
+        .reset_index()
+    )
+    stats["stop_id"] = (
+        stats["day"].astype(str) + "_" + stats["itinerary_id"].astype(str)
+    )
     return stats
 
 
@@ -150,7 +152,7 @@ Number of itineraries & """
         + f"{stats['pm25_max']:.1f}"
         + r""" \\
 \midrule
-\multicolumn{2}{l}{\textbf{CO ($\mu$g/m$^3$)}} \\
+\multicolumn{2}{l}{\textbf{CO$_2$ (ppm)}} \\
 \quad Mean & """
         + f"{stats['co_mean']:.0f}"
         + r""" \\
@@ -180,7 +182,7 @@ Number of itineraries & """
 
 
 def make_table2_threshold_exceedance(df: pd.DataFrame, output_dir: Path) -> None:
-    """Generate Table 2: PM2.5 and CO Threshold Exceedance (LaTeX)."""
+    """Generate Table 2: PM2.5 Threshold Exceedance (LaTeX)."""
     n_total = len(df)
 
     pm25_thresholds = [
@@ -191,28 +193,16 @@ def make_table2_threshold_exceedance(df: pd.DataFrame, output_dir: Path) -> None
         (225.4, "PM2.5 $>$ Very Unhealthy ($>$225.4 $\\mu$g/m$^3$)"),
     ]
 
-    co_thresholds = [
-        (4000, "CO $>$ WHO 24-hour ($>$4000 $\\mu$g/m$^3$)"),
-        (10305, "CO $>$ EPA 8-hour ($>$10305 $\\mu$g/m$^3$)"),
-    ]
-
     rows = []
     for thresh, label in pm25_thresholds:
         n_above = (df["pm25"] > thresh).sum()
         pct = 100 * n_above / n_total
         rows.append(f"{label} & {n_above:,} & {pct:.1f}\\% \\\\")
 
-    rows.append(r"\midrule")
-
-    for thresh, label in co_thresholds:
-        n_above = (df["co"] > thresh).sum()
-        pct = 100 * n_above / n_total
-        rows.append(f"{label} & {n_above:,} & {pct:.1f}\\% \\\\")
-
     latex = (
         r"""\begin{table}[htbp]
 \centering
-\caption{Air Quality Threshold Exceedance}
+\caption{PM2.5 Threshold Exceedance}
 \label{tab:thresholds}
 \begin{tabular}{lrr}
 \toprule
@@ -226,7 +216,6 @@ Threshold & N Readings & Percentage \\
 \begin{tablenotes}
 \small
 \item Note: EPA 2024 lowered the annual PM2.5 standard from 12 to 9 $\mu$g/m$^3$.
-\item CO readings well below WHO/EPA thresholds (max $\approx$1500 $\mu$g/m$^3$ $\approx$ 1.3 ppm).
 \end{tablenotes}
 \end{table}
 """
@@ -322,7 +311,9 @@ def make_fig1_map(df: pd.DataFrame, output_dir: Path) -> None:
     center_lat = df["latitude"].mean()
     center_lon = df["longitude"].mean()
 
-    m = folium.Map(location=[center_lat, center_lon], zoom_start=11, tiles="CartoDB Positron")
+    m = folium.Map(
+        location=[center_lat, center_lon], zoom_start=11, tiles="CartoDB Positron"
+    )
 
     for _, row in df.iterrows():
         category = get_pm25_category(row["pm25"])
@@ -338,7 +329,7 @@ def make_fig1_map(df: pd.DataFrame, output_dir: Path) -> None:
             fill_opacity=0.7,
             popup=(
                 f"<b>PM2.5:</b> {row['pm25']:.0f} μg/m³<br>"
-                f"<b>CO:</b> {row['co']:.0f} μg/m³<br>"
+                f"<b>CO₂:</b> {row['co']:.0f} ppm<br>"
                 f"<b>Category:</b> {category}<br>"
                 f"<b>Day:</b> {row['day']}<br>"
                 f"<b>Time:</b> {row['captured_at']}"
@@ -370,7 +361,7 @@ def make_fig1_map(df: pd.DataFrame, output_dir: Path) -> None:
 
 
 def make_fig2_histogram(df: pd.DataFrame, output_dir: Path) -> None:
-    """Generate Figure 2: Histograms of PM2.5 and CO readings."""
+    """Generate Figure 2: Histograms of PM2.5 and CO₂ readings."""
     fig, axes = plt.subplots(1, 2, figsize=(12, 5))
 
     ax1 = axes[0]
@@ -403,23 +394,18 @@ def make_fig2_histogram(df: pd.DataFrame, output_dir: Path) -> None:
     bins_co = np.arange(0, df["co"].max() + 100, 50)
     ax2.hist(df["co"], bins=bins_co, color="#e6550d", alpha=0.7, edgecolor="white")
 
-    ax2.axvline(4000, color="#d73027", linestyle="--", linewidth=2, label="WHO 24-hr (4000)")
-
-    ax2.set_xlabel("CO (μg/m³)")
-    ax2.set_ylabel("Number of Readings")
-    ax2.set_title(f"Distribution of CO Readings (N={len(df):,})")
-    ax2.legend(loc="upper right", fontsize=8)
-
-    co_ppm_max = df["co"].max() / 1145
-    ax2.annotate(
-        f"Max: {df['co'].max():.0f} μg/m³\n≈ {co_ppm_max:.1f} ppm",
-        xy=(0.95, 0.95),
-        xycoords="axes fraction",
-        ha="right",
-        va="top",
-        fontsize=9,
-        bbox=dict(boxstyle="round", facecolor="wheat", alpha=0.5),
+    ax2.axvline(
+        CO2_OUTDOOR_BASELINE,
+        color="#2ca02c",
+        linestyle="--",
+        linewidth=2,
+        label=f"Outdoor baseline ({CO2_OUTDOOR_BASELINE} ppm)",
     )
+
+    ax2.set_xlabel("CO₂ (ppm)")
+    ax2.set_ylabel("Number of Readings")
+    ax2.set_title(f"Distribution of CO₂ Readings (N={len(df):,})")
+    ax2.legend(loc="upper right", fontsize=8)
 
     plt.tight_layout()
     output_path = output_dir / "fig2_histogram.pdf"
@@ -429,7 +415,7 @@ def make_fig2_histogram(df: pd.DataFrame, output_dir: Path) -> None:
 
 
 def make_fig3_boxplot_by_day(df: pd.DataFrame, output_dir: Path) -> None:
-    """Generate Figure 3: Box plots of PM2.5 and CO by day."""
+    """Generate Figure 3: Box plots of PM2.5 and CO₂ by day."""
     fig, axes = plt.subplots(1, 2, figsize=(12, 5))
 
     days = sorted(df["day"].unique())
@@ -442,9 +428,19 @@ def make_fig3_boxplot_by_day(df: pd.DataFrame, output_dir: Path) -> None:
         patch.set_facecolor("#3182bd")
         patch.set_alpha(0.7)
 
-    ax1.axhline(9.0, color="#00e400", linestyle="--", linewidth=2, label="Good limit (9)")
-    ax1.axhline(35.4, color="#ffff00", linestyle="--", linewidth=2, label="Moderate limit (35.4)")
-    ax1.axhline(55.4, color="#ff7e00", linestyle="--", linewidth=2, label="USG limit (55.4)")
+    ax1.axhline(
+        9.0, color="#00e400", linestyle="--", linewidth=2, label="Good limit (9)"
+    )
+    ax1.axhline(
+        35.4,
+        color="#ffff00",
+        linestyle="--",
+        linewidth=2,
+        label="Moderate limit (35.4)",
+    )
+    ax1.axhline(
+        55.4, color="#ff7e00", linestyle="--", linewidth=2, label="USG limit (55.4)"
+    )
 
     ax1.set_xticklabels([f"Day {d}" for d in days])
     ax1.set_xlabel("Day")
@@ -462,8 +458,8 @@ def make_fig3_boxplot_by_day(df: pd.DataFrame, output_dir: Path) -> None:
 
     ax2.set_xticklabels([f"Day {d}" for d in days])
     ax2.set_xlabel("Day")
-    ax2.set_ylabel("CO (μg/m³)")
-    ax2.set_title("CO Distribution by Day")
+    ax2.set_ylabel("CO₂ (ppm)")
+    ax2.set_title("CO₂ Distribution by Day")
 
     plt.tight_layout()
     output_path = output_dir / "fig3_boxplot_by_day.pdf"
@@ -473,23 +469,33 @@ def make_fig3_boxplot_by_day(df: pd.DataFrame, output_dir: Path) -> None:
 
 
 def make_fig4_scatter_pm_co(df: pd.DataFrame, output_dir: Path) -> None:
-    """Generate Figure 4: Scatter plot of PM2.5 vs CO."""
+    """Generate Figure 4: Scatter plot of PM2.5 vs CO₂."""
     fig, ax = plt.subplots(figsize=(8, 6))
 
     colors = [AQI_COLORS.get(get_pm25_category(pm), "#808080") for pm in df["pm25"]]
 
-    ax.scatter(df["co"], df["pm25"], c=colors, alpha=0.6, s=50, edgecolors="white", linewidth=0.5)
+    ax.scatter(
+        df["co"],
+        df["pm25"],
+        c=colors,
+        alpha=0.6,
+        s=50,
+        edgecolors="white",
+        linewidth=0.5,
+    )
 
     corr = df["pm25"].corr(df["co"])
 
     z = np.polyfit(df["co"], df["pm25"], 1)
     p = np.poly1d(z)
     x_line = np.linspace(df["co"].min(), df["co"].max(), 100)
-    ax.plot(x_line, p(x_line), "k--", linewidth=2, alpha=0.7, label=f"Trend (r={corr:.2f})")
+    ax.plot(
+        x_line, p(x_line), "k--", linewidth=2, alpha=0.7, label=f"Trend (r={corr:.2f})"
+    )
 
-    ax.set_xlabel("CO (μg/m³)")
+    ax.set_xlabel("CO₂ (ppm)")
     ax.set_ylabel("PM2.5 (μg/m³)")
-    ax.set_title(f"PM2.5 vs CO Correlation (N={len(df):,})")
+    ax.set_title(f"PM2.5 vs CO₂ Correlation (N={len(df):,})")
     ax.legend(loc="upper right")
     ax.grid(True, alpha=0.3)
 
@@ -510,9 +516,7 @@ def process(readings_path: Path, output_dir: Path) -> None:
     df = load_readings(readings_path)
     print(f"  Loaded {len(df):,} readings from {df['day'].nunique()} days")
     print(f"  PM2.5 range: {df['pm25'].min():.1f} - {df['pm25'].max():.1f} μg/m³")
-    print(f"  CO range: {df['co'].min():.0f} - {df['co'].max():.0f} μg/m³")
-    co_ppm_max = df["co"].max() / 1145
-    print(f"  CO max in ppm: {co_ppm_max:.2f} ppm (well within safe limits)")
+    print(f"  CO₂ range: {df['co'].min():.0f} - {df['co'].max():.0f} ppm")
 
     parquet_path = output_dir / "analysis_data.parquet"
     df.to_parquet(parquet_path)
@@ -557,13 +561,12 @@ def process(readings_path: Path, output_dir: Path) -> None:
     print(f"  Unhealthy for Sensitive (>55.4 μg/m³): {pct_above_usg:.1f}%")
     print(f"  Unhealthy (>125.4 μg/m³): {pct_above_unhealthy:.1f}%")
 
-    print("\nCO (μg/m³):")
+    print("\nCO₂ (ppm):")
     print(f"  Mean: {stats['co_mean']:.0f}, Median: {stats['co_median']:.0f}")
     print(f"  Range: {stats['co_min']:.0f} - {stats['co_max']:.0f}")
-    print(f"  Max in ppm: {stats['co_max'] / 1145:.2f} (WHO 24-hr limit: 3.5 ppm)")
-
-    co_above_who = 100 * (df["co"] > 4000).mean()
-    print(f"  Above WHO 24-hour (>4000 μg/m³): {co_above_who:.1f}%")
+    print(
+        f"  Above outdoor baseline (>{CO2_OUTDOOR_BASELINE} ppm): {100 * (df['co'] > CO2_OUTDOOR_BASELINE).mean():.1f}%"
+    )
 
     print("\nAnalysis complete!")
     print(f"  Tables: {tabs_dir}")
