@@ -1,8 +1,6 @@
 {
   "source": "rider_form",
-  "city": "delhi",
   "export_date": "2026-05-24T18:01:03.350785+00:00",
-  "export_name": "export-2026-05-24",
   "reading_count": 98,
   "readings": [
     {
@@ -3043,5 +3041,7 @@
         "road_name": "Street No: 5"
       }
     }
-  ]
+  ],
+  "city": "delhi",
+  "export_name": "export-2026-05-24"
 }
