@@ -1,0 +1,2770 @@
+{
+  "source": "rider_form",
+  "city": "delhi",
+  "export_date": "2026-05-24T18:01:03.350785+00:00",
+  "reading_count": 98,
+  "readings": [
+    {
+      "id": "47a27458-0e2c-42de-8c01-f78c571de1b4",
+      "timestamp": "2026-05-16T16:46:33.097000+05:30",
+      "timestamp_utc": "2026-05-16T11:16:33.097+00:00",
+      "gps": {
+        "latitude": 28.643719,
+        "longitude": 77.2989862
+      },
+      "reading": {
+        "pm25": 99,
+        "co": 414
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-09/001_itinerary-1-part-2.jpg",
+      "image": {
+        "local_path": "images/pollution/day-09/001_itinerary-1-part-2.jpg",
+        "original_name": "17789301803242784560681094233323.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-9/1778930194957-day-9-itinerary-1-part-2.jpg"
+      },
+      "metadata": {
+        "day": 9,
+        "itinerary": "1-2",
+        "title": "Itinerary 1 - Part 2",
+        "stop_id": "1.2",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "1.2"
+      }
+    },
+    {
+      "id": "29e552c0-06e3-4526-83e3-5c43e02dae41",
+      "timestamp": "2026-05-16T16:37:18.372000+05:30",
+      "timestamp_utc": "2026-05-16T11:07:18.372+00:00",
+      "gps": {
+        "latitude": 28.6392021,
+        "longitude": 77.299399
+      },
+      "reading": {
+        "pm25": 84,
+        "co": 406
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-09/002_itinerary-1-part-2.jpg",
+      "image": {
+        "local_path": "images/pollution/day-09/002_itinerary-1-part-2.jpg",
+        "original_name": "17789296255512252324175763396767.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-9/1778929638958-day-9-itinerary-1-part-2.jpg"
+      },
+      "metadata": {
+        "day": 9,
+        "itinerary": "1-2",
+        "title": "Itinerary 1 - Part 2",
+        "stop_id": "1.1",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "1.1"
+      }
+    },
+    {
+      "id": "70f1a5b9-3b55-4174-91f7-5a7395e32d5b",
+      "timestamp": "2026-05-16T16:19:46.845000+05:30",
+      "timestamp_utc": "2026-05-16T10:49:46.845+00:00",
+      "gps": {
+        "latitude": 28.6338921,
+        "longitude": 77.2790365
+      },
+      "reading": {
+        "pm25": 79,
+        "co": 401
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-09/003_itinerary-6-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-09/003_itinerary-6-part-1.jpg",
+        "original_name": "17789285626372469655504647996775.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-9/1778928586995-day-9-itinerary-6-part-1.jpg"
+      },
+      "metadata": {
+        "day": 9,
+        "itinerary": "6-1",
+        "title": "Itinerary 6 - Part 1",
+        "stop_id": "6.3",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "6.3"
+      }
+    },
+    {
+      "id": "b875c14c-883a-487a-b12e-9c4e2dbdf726",
+      "timestamp": "2026-05-16T16:06:48.620000+05:30",
+      "timestamp_utc": "2026-05-16T10:36:48.62+00:00",
+      "gps": {
+        "latitude": 28.6517962,
+        "longitude": 77.2672242
+      },
+      "reading": {
+        "pm25": 82,
+        "co": 404
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-09/004_itinerary-6-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-09/004_itinerary-6-part-1.jpg",
+        "original_name": "17789277918504712757532441607066.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-9/1778927808943-day-9-itinerary-6-part-1.jpg"
+      },
+      "metadata": {
+        "day": 9,
+        "itinerary": "6-1",
+        "title": "Itinerary 6 - Part 1",
+        "stop_id": "6.2",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "6.2"
+      }
+    },
+    {
+      "id": "2b14d0b9-41a9-450d-ad81-c1f878f58654",
+      "timestamp": "2026-05-16T15:56:00.405000+05:30",
+      "timestamp_utc": "2026-05-16T10:26:00.405+00:00",
+      "gps": {
+        "latitude": 28.6693327,
+        "longitude": 77.2629075
+      },
+      "reading": {
+        "pm25": 107,
+        "co": 418
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-09/005_itinerary-6-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-09/005_itinerary-6-part-1.jpg",
+        "original_name": "17789271456988322362351796485362.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-9/1778927160954-day-9-itinerary-6-part-1.jpg"
+      },
+      "metadata": {
+        "day": 9,
+        "itinerary": "6-1",
+        "title": "Itinerary 6 - Part 1",
+        "stop_id": "6.1",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "6.1"
+      }
+    },
+    {
+      "id": "1ea2eddd-780c-4a96-835b-3690974f05d6",
+      "timestamp": "2026-05-16T14:40:03.042000+05:30",
+      "timestamp_utc": "2026-05-16T09:10:03.042+00:00",
+      "gps": {
+        "latitude": 28.8116528,
+        "longitude": 77.1390722
+      },
+      "reading": {
+        "pm25": 83,
+        "co": 408
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-09/006_itinerary-20-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-09/006_itinerary-20-part-1.jpg",
+        "original_name": "17789225798108080071129818325168.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-9/1778922604311-day-9-itinerary-20-part-1.jpg"
+      },
+      "metadata": {
+        "day": 9,
+        "itinerary": "20-1",
+        "title": "Itinerary 20 - Part 1",
+        "stop_id": "20.12",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "20.12"
+      }
+    },
+    {
+      "id": "c5591ea9-f933-473a-aeab-103980866791",
+      "timestamp": "2026-05-16T14:28:10.109000+05:30",
+      "timestamp_utc": "2026-05-16T08:58:10.109+00:00",
+      "gps": {
+        "latitude": 28.8233543,
+        "longitude": 77.133681
+      },
+      "reading": {
+        "pm25": 86,
+        "co": 406
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-09/007_itinerary-20-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-09/007_itinerary-20-part-1.jpg",
+        "original_name": "17789218648946914379410040488500.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-9/1778921890240-day-9-itinerary-20-part-1.jpg"
+      },
+      "metadata": {
+        "day": 9,
+        "itinerary": "20-1",
+        "title": "Itinerary 20 - Part 1",
+        "stop_id": "20.11",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "20.11"
+      }
+    },
+    {
+      "id": "8b53b579-d48d-4008-81c2-1fca9f83c0a1",
+      "timestamp": "2026-05-16T14:21:38.693000+05:30",
+      "timestamp_utc": "2026-05-16T08:51:38.693+00:00",
+      "gps": {
+        "latitude": 28.8273481,
+        "longitude": 77.1323438
+      },
+      "reading": {
+        "pm25": 84,
+        "co": 415
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-09/008_itinerary-20-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-09/008_itinerary-20-part-1.jpg",
+        "original_name": "17789214796508330132393086263118.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-9/1778921499006-day-9-itinerary-20-part-1.jpg"
+      },
+      "metadata": {
+        "day": 9,
+        "itinerary": "20-1",
+        "title": "Itinerary 20 - Part 1",
+        "stop_id": "20.10",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "20.10",
+        "address": "Alipur Tehsil, North Delhi, Delhi, 110036, India",
+        "road_type": "residential",
+        "road_name": ""
+      }
+    },
+    {
+      "id": "a7fc05c8-aeb2-4de1-a497-8a785deccff7",
+      "timestamp": "2026-05-16T14:11:51.993000+05:30",
+      "timestamp_utc": "2026-05-16T08:41:51.993+00:00",
+      "gps": {
+        "latitude": 28.8361424,
+        "longitude": 77.122792
+      },
+      "reading": {
+        "pm25": 98,
+        "co": 401
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-09/009_itinerary-20-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-09/009_itinerary-20-part-1.jpg",
+        "original_name": "17789208967888852063838222836681.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-9/1778920912168-day-9-itinerary-20-part-1.jpg"
+      },
+      "metadata": {
+        "day": 9,
+        "itinerary": "20-1",
+        "title": "Itinerary 20 - Part 1",
+        "stop_id": "20.9",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "20.9"
+      }
+    },
+    {
+      "id": "54919175-acff-4dcf-b238-1fcf7143704c",
+      "timestamp": "2026-05-16T14:03:19.429000+05:30",
+      "timestamp_utc": "2026-05-16T08:33:19.429+00:00",
+      "gps": {
+        "latitude": 28.8165095,
+        "longitude": 77.1168257
+      },
+      "reading": {
+        "pm25": 63,
+        "co": 408
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-09/010_itinerary-20-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-09/010_itinerary-20-part-1.jpg",
+        "original_name": "17789203765368982929893621854633.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-9/1778920399977-day-9-itinerary-20-part-1.jpg"
+      },
+      "metadata": {
+        "day": 9,
+        "itinerary": "20-1",
+        "title": "Itinerary 20 - Part 1",
+        "stop_id": "20.8",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "20.8"
+      }
+    },
+    {
+      "id": "ae107333-2959-4a49-89c5-7de589ac2504",
+      "timestamp": "2026-05-16T13:51:43.951000+05:30",
+      "timestamp_utc": "2026-05-16T08:21:43.951+00:00",
+      "gps": {
+        "latitude": 28.8331058,
+        "longitude": 77.1075032
+      },
+      "reading": {
+        "pm25": 76,
+        "co": 530
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-09/011_itinerary-20-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-09/011_itinerary-20-part-1.jpg",
+        "original_name": "17789196852031325416247622023624.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-9/1778919704109-day-9-itinerary-20-part-1.jpg"
+      },
+      "metadata": {
+        "day": 9,
+        "itinerary": "20-1",
+        "title": "Itinerary 20 - Part 1",
+        "stop_id": "20.7",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "20.7"
+      }
+    },
+    {
+      "id": "1c8ab2d0-4fcf-43bc-8160-729c901ba07b",
+      "timestamp": "2026-05-16T13:45:24.278000+05:30",
+      "timestamp_utc": "2026-05-16T08:15:24.278+00:00",
+      "gps": {
+        "latitude": 28.8425967,
+        "longitude": 77.1012781
+      },
+      "reading": {
+        "pm25": 64,
+        "co": 553
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-09/012_itinerary-20-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-09/012_itinerary-20-part-1.jpg",
+        "original_name": "17789193047306653725931743937787.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-9/1778919324424-day-9-itinerary-20-part-1.jpg"
+      },
+      "metadata": {
+        "day": 9,
+        "itinerary": "20-1",
+        "title": "Itinerary 20 - Part 1",
+        "stop_id": "20.6",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "20.6"
+      }
+    },
+    {
+      "id": "b12d91c6-035e-4248-9f13-f75636bd710a",
+      "timestamp": "2026-05-16T13:37:06.718000+05:30",
+      "timestamp_utc": "2026-05-16T08:07:06.718+00:00",
+      "gps": {
+        "latitude": 28.8518993,
+        "longitude": 77.0926555
+      },
+      "reading": {
+        "pm25": 96,
+        "co": 409
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-09/013_itinerary-20-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-09/013_itinerary-20-part-1.jpg",
+        "original_name": "17789188047084126698292076537584.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-9/1778918827010-day-9-itinerary-20-part-1.jpg"
+      },
+      "metadata": {
+        "day": 9,
+        "itinerary": "20-1",
+        "title": "Itinerary 20 - Part 1",
+        "stop_id": "20.5",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "20.5"
+      }
+    },
+    {
+      "id": "efdf617e-739b-4ec3-ab0a-7af6cbe7a081",
+      "timestamp": "2026-05-16T13:31:14.859000+05:30",
+      "timestamp_utc": "2026-05-16T08:01:14.859+00:00",
+      "gps": {
+        "latitude": 28.8525991,
+        "longitude": 77.0942238
+      },
+      "reading": {
+        "pm25": 72,
+        "co": 471
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-09/014_itinerary-20-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-09/014_itinerary-20-part-1.jpg",
+        "original_name": "17789184593145175096919497224631.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-9/1778918475043-day-9-itinerary-20-part-1.jpg"
+      },
+      "metadata": {
+        "day": 9,
+        "itinerary": "20-1",
+        "title": "Itinerary 20 - Part 1",
+        "stop_id": "20.4",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "20.4"
+      }
+    },
+    {
+      "id": "dc82dbde-27a0-423a-b758-9e22f56965f3",
+      "timestamp": "2026-05-16T13:22:34.991000+05:30",
+      "timestamp_utc": "2026-05-16T07:52:34.991+00:00",
+      "gps": {
+        "latitude": 28.8547423,
+        "longitude": 77.1020706
+      },
+      "reading": {
+        "pm25": 73,
+        "co": 402
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-09/015_itinerary-20-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-09/015_itinerary-20-part-1.jpg",
+        "original_name": "1778917923979963330915697679636.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-9/1778917955144-day-9-itinerary-20-part-1.jpg"
+      },
+      "metadata": {
+        "day": 9,
+        "itinerary": "20-1",
+        "title": "Itinerary 20 - Part 1",
+        "stop_id": "20.3",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "20.3"
+      }
+    },
+    {
+      "id": "b3471e3e-0ad9-4d37-9421-a9f7b749a51f",
+      "timestamp": "2026-05-16T13:14:34.419000+05:30",
+      "timestamp_utc": "2026-05-16T07:44:34.419+00:00",
+      "gps": {
+        "latitude": 28.8612954,
+        "longitude": 77.0954858
+      },
+      "reading": {
+        "pm25": 66,
+        "co": 402
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-09/016_itinerary-20-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-09/016_itinerary-20-part-1.jpg",
+        "original_name": "17789174545022368656428730387012.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-9/1778917474958-day-9-itinerary-20-part-1.jpg"
+      },
+      "metadata": {
+        "day": 9,
+        "itinerary": "20-1",
+        "title": "Itinerary 20 - Part 1",
+        "stop_id": "20.2",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "20.2"
+      }
+    },
+    {
+      "id": "927c7ec4-16b4-4181-9357-0f85df6ea805",
+      "timestamp": "2026-05-16T13:09:02.566000+05:30",
+      "timestamp_utc": "2026-05-16T07:39:02.566+00:00",
+      "gps": {
+        "latitude": 28.857462,
+        "longitude": 77.1022161
+      },
+      "reading": {
+        "pm25": 75,
+        "co": 402
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-09/017_itinerary-20-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-09/017_itinerary-20-part-1.jpg",
+        "original_name": "17789171244205638248692764938046.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-9/1778917142955-day-9-itinerary-20-part-1.jpg"
+      },
+      "metadata": {
+        "day": 9,
+        "itinerary": "20-1",
+        "title": "Itinerary 20 - Part 1",
+        "stop_id": "20.1",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "20.1",
+        "address": "Sector A-5, Narela Tehsil, North Delhi, Delhi, 110040, India",
+        "road_type": "tertiary",
+        "road_name": ""
+      }
+    },
+    {
+      "id": "6513c001-248e-47b1-a197-bf74359d4526",
+      "timestamp": "2026-05-16T12:18:22.885000+05:30",
+      "timestamp_utc": "2026-05-16T06:48:22.885+00:00",
+      "gps": {
+        "latitude": 28.7352787,
+        "longitude": 77.1975208
+      },
+      "reading": {
+        "pm25": 95,
+        "co": 413
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-09/018_itinerary-47-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-09/018_itinerary-47-part-1.jpg",
+        "original_name": "17789140856203480631655786036207.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-9/1778914103048-day-9-itinerary-47-part-1.jpg"
+      },
+      "metadata": {
+        "day": 9,
+        "itinerary": "47-1",
+        "title": "Itinerary 47 - Part 1",
+        "stop_id": "47.9",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "47.9",
+        "address": "Burari road, Civil Lines Tehsil, Central Delhi, Delhi, 110084, India",
+        "road_type": "secondary",
+        "road_name": "Burari road"
+      }
+    },
+    {
+      "id": "c17753e7-54c1-47ed-8d65-b959115dd8a2",
+      "timestamp": "2026-05-16T12:04:34.852000+05:30",
+      "timestamp_utc": "2026-05-16T06:34:34.852+00:00",
+      "gps": {
+        "latitude": 28.7311631,
+        "longitude": 77.1884335
+      },
+      "reading": {
+        "pm25": 108,
+        "co": 414
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-09/019_itinerary-47-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-09/019_itinerary-47-part-1.jpg",
+        "original_name": "17789132566576149315512113490055.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-9/1778913275020-day-9-itinerary-47-part-1.jpg"
+      },
+      "metadata": {
+        "day": 9,
+        "itinerary": "47-1",
+        "title": "Itinerary 47 - Part 1",
+        "stop_id": "47.8",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "47.8"
+      }
+    },
+    {
+      "id": "2f9a49f1-fefa-4a42-9b96-1bc3815422f2",
+      "timestamp": "2026-05-16T11:55:33.960000+05:30",
+      "timestamp_utc": "2026-05-16T06:25:33.96+00:00",
+      "gps": {
+        "latitude": 28.7446504,
+        "longitude": 77.174647
+      },
+      "reading": {
+        "pm25": 177,
+        "co": 403
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-09/020_itinerary-47-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-09/020_itinerary-47-part-1.jpg",
+        "original_name": "1778912710782759941671675208075.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-9/1778912734190-day-9-itinerary-47-part-1.jpg"
+      },
+      "metadata": {
+        "day": 9,
+        "itinerary": "47-1",
+        "title": "Itinerary 47 - Part 1",
+        "stop_id": "47.7",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "47.7"
+      }
+    },
+    {
+      "id": "2c90d478-fbd7-498a-8986-15722c1661db",
+      "timestamp": "2026-05-16T11:47:22.302000+05:30",
+      "timestamp_utc": "2026-05-16T06:17:22.302+00:00",
+      "gps": {
+        "latitude": 28.7484648,
+        "longitude": 77.1818983
+      },
+      "reading": {
+        "pm25": 156,
+        "co": 49
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-09/021_itinerary-47-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-09/021_itinerary-47-part-1.jpg",
+        "original_name": "17789121727677877467386126134792.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-9/1778912242450-day-9-itinerary-47-part-1.jpg"
+      },
+      "metadata": {
+        "day": 9,
+        "itinerary": "47-1",
+        "title": "Itinerary 47 - Part 1",
+        "stop_id": "47.6",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "47.6"
+      }
+    },
+    {
+      "id": "43d61ebe-caaa-471a-886a-38497b6b6f38",
+      "timestamp": "2026-05-16T11:26:01.964000+05:30",
+      "timestamp_utc": "2026-05-16T05:56:01.964+00:00",
+      "gps": {
+        "latitude": 28.751734,
+        "longitude": 77.1878196
+      },
+      "reading": {
+        "pm25": 130,
+        "co": 411
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-09/022_itinerary-47-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-09/022_itinerary-47-part-1.jpg",
+        "original_name": "17789109398191190912427802529700.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-9/1778910962094-day-9-itinerary-47-part-1.jpg"
+      },
+      "metadata": {
+        "day": 9,
+        "itinerary": "47-1",
+        "title": "Itinerary 47 - Part 1",
+        "stop_id": "47.5",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "47.5"
+      }
+    },
+    {
+      "id": "ad4beca1-b5c9-44cd-b448-c4f90605a6ee",
+      "timestamp": "2026-05-16T11:19:59.818000+05:30",
+      "timestamp_utc": "2026-05-16T05:49:59.818+00:00",
+      "gps": {
+        "latitude": 28.7558025,
+        "longitude": 77.1931982
+      },
+      "reading": {
+        "pm25": 145,
+        "co": 593
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-09/023_itinerary-47-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-09/023_itinerary-47-part-1.jpg",
+        "original_name": "17789105807621703469823352182639.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-9/1778910600011-day-9-itinerary-47-part-1.jpg"
+      },
+      "metadata": {
+        "day": 9,
+        "itinerary": "47-1",
+        "title": "Itinerary 47 - Part 1",
+        "stop_id": "47.4",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "47.4"
+      }
+    },
+    {
+      "id": "9c54f5ce-464c-4975-9d82-aeb25e86e895",
+      "timestamp": "2026-05-16T11:03:07.456000+05:30",
+      "timestamp_utc": "2026-05-16T05:33:07.456+00:00",
+      "gps": {
+        "latitude": 28.7723959,
+        "longitude": 77.1966152
+      },
+      "reading": {
+        "pm25": 138,
+        "co": 416
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-09/024_itinerary-47-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-09/024_itinerary-47-part-1.jpg",
+        "original_name": "17789095576596295946933743027816.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-9/1778909587974-day-9-itinerary-47-part-1.jpg"
+      },
+      "metadata": {
+        "day": 9,
+        "itinerary": "47-1",
+        "title": "Itinerary 47 - Part 1",
+        "stop_id": "47.3",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "47.3"
+      }
+    },
+    {
+      "id": "dcb623d0-ced2-447b-8a65-0693251d2496",
+      "timestamp": "2026-05-16T10:23:59.212000+05:30",
+      "timestamp_utc": "2026-05-16T04:53:59.212+00:00",
+      "gps": {
+        "latitude": 28.7674178,
+        "longitude": 77.1819166
+      },
+      "reading": {
+        "pm25": 279,
+        "co": 410
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-09/025_itinerary-47-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-09/025_itinerary-47-part-1.jpg",
+        "original_name": "17789072173896144450756938322148.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-9/1778907239349-day-9-itinerary-47-part-1.jpg"
+      },
+      "metadata": {
+        "day": 9,
+        "itinerary": "47-1",
+        "title": "Itinerary 47 - Part 1",
+        "stop_id": "47.2",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "47.2"
+      }
+    },
+    {
+      "id": "2bb9397f-20e7-44e0-aedf-5223b5237b4f",
+      "timestamp": "2026-05-16T10:09:57.640000+05:30",
+      "timestamp_utc": "2026-05-16T04:39:57.64+00:00",
+      "gps": {
+        "latitude": 28.7594455,
+        "longitude": 77.1794354
+      },
+      "reading": {
+        "pm25": 166,
+        "co": 413
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-09/026_itinerary-47-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-09/026_itinerary-47-part-1.jpg",
+        "original_name": "17789063735793433364034725178771.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-9/1778906398017-day-9-itinerary-47-part-1.jpg"
+      },
+      "metadata": {
+        "day": 9,
+        "itinerary": "47-1",
+        "title": "Itinerary 47 - Part 1",
+        "stop_id": "47.1",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "47.1"
+      }
+    },
+    {
+      "id": "e48eb45b-2bfc-4da9-89af-689472936fe0",
+      "timestamp": "2026-05-15T16:13:14.848000+05:30",
+      "timestamp_utc": "2026-05-15T10:43:14.848+00:00",
+      "gps": {
+        "latitude": 28.6308515,
+        "longitude": 77.1324015
+      },
+      "reading": {
+        "pm25": 62,
+        "co": 402
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-14/001_itinerary-32-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-14/001_itinerary-32-part-1.jpg",
+        "original_name": "17788417662302372126423551487115.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-14/1778841796005-day-14-itinerary-32-part-1.jpg"
+      },
+      "metadata": {
+        "day": 14,
+        "itinerary": "32-1",
+        "title": "Itinerary 32 - Part 1",
+        "stop_id": "32.8",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "32.8"
+      }
+    },
+    {
+      "id": "9aacae10-67dc-4fe0-adb3-70ca3d46d475",
+      "timestamp": "2026-05-15T16:02:18.608000+05:30",
+      "timestamp_utc": "2026-05-15T10:32:18.608+00:00",
+      "gps": {
+        "latitude": 28.6481931,
+        "longitude": 77.139312
+      },
+      "reading": {
+        "pm25": 62,
+        "co": 407
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-14/002_itinerary-32-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-14/002_itinerary-32-part-1.jpg",
+        "original_name": "17788411215005981796102168958045.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-14/1778841139049-day-14-itinerary-32-part-1.jpg"
+      },
+      "metadata": {
+        "day": 14,
+        "itinerary": "32-1",
+        "title": "Itinerary 32 - Part 1",
+        "stop_id": "32.7",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "32.7"
+      }
+    },
+    {
+      "id": "de42723c-0ed4-4049-996c-684b7c100254",
+      "timestamp": "2026-05-15T15:56:41.248000+05:30",
+      "timestamp_utc": "2026-05-15T10:26:41.248+00:00",
+      "gps": {
+        "latitude": 28.64199,
+        "longitude": 77.1331379
+      },
+      "reading": {
+        "pm25": 61,
+        "co": 401
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-14/003_itinerary-32-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-14/003_itinerary-32-part-1.jpg",
+        "original_name": "17788407860215437005903391299715.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-14/1778840801396-day-14-itinerary-32-part-1.jpg"
+      },
+      "metadata": {
+        "day": 14,
+        "itinerary": "32-1",
+        "title": "Itinerary 32 - Part 1",
+        "stop_id": "32.6",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "32.6",
+        "address": "Dhanpat Rai Ahuja Marg, Mansarovar Garden, Patel Nagar, West Delhi, Delhi, 110027, India",
+        "road_type": "residential",
+        "road_name": "Dhanpat Rai Ahuja Marg"
+      }
+    },
+    {
+      "id": "d5900010-e1f8-4813-9448-3e44e54dbced",
+      "timestamp": "2026-05-15T15:50:11.230000+05:30",
+      "timestamp_utc": "2026-05-15T10:20:11.23+00:00",
+      "gps": {
+        "latitude": 28.6520307,
+        "longitude": 77.1293384
+      },
+      "reading": {
+        "pm25": 96,
+        "co": 414
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-14/004_itinerary-32-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-14/004_itinerary-32-part-1.jpg",
+        "original_name": "17788403872016392845661310452204.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-14/1778840411401-day-14-itinerary-32-part-1.jpg"
+      },
+      "metadata": {
+        "day": 14,
+        "itinerary": "32-1",
+        "title": "Itinerary 32 - Part 1",
+        "stop_id": "32.6",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "32.6"
+      }
+    },
+    {
+      "id": "10833920-c27b-4ea3-a35a-50c79d12b0d7",
+      "timestamp": "2026-05-15T15:46:13.263000+05:30",
+      "timestamp_utc": "2026-05-15T10:16:13.263+00:00",
+      "gps": {
+        "latitude": 28.6533184,
+        "longitude": 77.1290705
+      },
+      "reading": {
+        "pm25": 66,
+        "co": 417
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-14/005_itinerary-32-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-14/005_itinerary-32-part-1.jpg",
+        "original_name": "17788401553386605614473093726049.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-14/1778840173414-day-14-itinerary-32-part-1.jpg"
+      },
+      "metadata": {
+        "day": 14,
+        "itinerary": "32-1",
+        "title": "Itinerary 32 - Part 1",
+        "stop_id": "32.5",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "32.5"
+      }
+    },
+    {
+      "id": "c4a2102f-a3ea-4bab-a58f-7ac48ea7f7ac",
+      "timestamp": "2026-05-15T15:33:18.091000+05:30",
+      "timestamp_utc": "2026-05-15T10:03:18.091+00:00",
+      "gps": {
+        "latitude": 28.6504361,
+        "longitude": 77.115693
+      },
+      "reading": {
+        "pm25": 60,
+        "co": 403
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-14/006_itinerary-32-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-14/006_itinerary-32-part-1.jpg",
+        "original_name": "17788393769544337293956772520486.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-14/1778839398254-day-14-itinerary-32-part-1.jpg"
+      },
+      "metadata": {
+        "day": 14,
+        "itinerary": "32-1",
+        "title": "Itinerary 32 - Part 1",
+        "stop_id": "32.4",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "32.4"
+      }
+    },
+    {
+      "id": "60faa17e-ec75-4609-b85e-5e89c78a478a",
+      "timestamp": "2026-05-15T15:17:58.357000+05:30",
+      "timestamp_utc": "2026-05-15T09:47:58.357+00:00",
+      "gps": {
+        "latitude": 28.6580025,
+        "longitude": 77.1176479
+      },
+      "reading": {
+        "pm25": 75,
+        "co": 407
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-14/007_itinerary-32-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-14/007_itinerary-32-part-1.jpg",
+        "original_name": "17788384496564241753780340347279.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-14/1778838479031-day-14-itinerary-32-part-1.jpg"
+      },
+      "metadata": {
+        "day": 14,
+        "itinerary": "32-1",
+        "title": "Itinerary 32 - Part 1",
+        "stop_id": "32.3",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "32.3"
+      }
+    },
+    {
+      "id": "641e9e1c-f87d-44e4-a2cd-a7bc79ab105d",
+      "timestamp": "2026-05-15T14:59:03.265000+05:30",
+      "timestamp_utc": "2026-05-15T09:29:03.265+00:00",
+      "gps": {
+        "latitude": 28.679504,
+        "longitude": 77.0968961
+      },
+      "reading": {
+        "pm25": 66,
+        "co": 404
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-14/008_itinerary-32-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-14/008_itinerary-32-part-1.jpg",
+        "original_name": "17788373271045412120271226828636.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-14/1778837343445-day-14-itinerary-32-part-1.jpg"
+      },
+      "metadata": {
+        "day": 14,
+        "itinerary": "32-1",
+        "title": "Itinerary 32 - Part 1",
+        "stop_id": "32.2",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "32.2"
+      }
+    },
+    {
+      "id": "be1e23de-695f-4d0b-95ee-75a3aad3b8a2",
+      "timestamp": "2026-05-15T14:20:57.528000+05:30",
+      "timestamp_utc": "2026-05-15T08:50:57.528+00:00",
+      "gps": {
+        "latitude": 28.6590404,
+        "longitude": 77.0833517
+      },
+      "reading": {
+        "pm25": 58,
+        "co": 568
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-14/009_itinerary-81-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-14/009_itinerary-81-part-1.jpg",
+        "original_name": "17788350398606981618088745511882.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-14/1778835058040-day-14-itinerary-81-part-1.jpg"
+      },
+      "metadata": {
+        "day": 14,
+        "itinerary": "81-1",
+        "title": "Itinerary 81 - Part 1",
+        "stop_id": "81.5",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "81.5"
+      }
+    },
+    {
+      "id": "2e694aec-6022-42ba-a917-691b90f86954",
+      "timestamp": "2026-05-15T14:15:20.698000+05:30",
+      "timestamp_utc": "2026-05-15T08:45:20.698+00:00",
+      "gps": {
+        "latitude": 28.6613105,
+        "longitude": 77.081877
+      },
+      "reading": {
+        "pm25": 69,
+        "co": 402
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-14/010_itinerary-81-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-14/010_itinerary-81-part-1.jpg",
+        "original_name": "17788347014233936381928428808519.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-14/1778834720865-day-14-itinerary-81-part-1.jpg"
+      },
+      "metadata": {
+        "day": 14,
+        "itinerary": "81-1",
+        "title": "Itinerary 81 - Part 1",
+        "stop_id": "81.4",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "81.4"
+      }
+    },
+    {
+      "id": "2e8c9384-0f02-4828-b89d-d3b690b161e2",
+      "timestamp": "2026-05-15T14:09:15.652000+05:30",
+      "timestamp_utc": "2026-05-15T08:39:15.652+00:00",
+      "gps": {
+        "latitude": 28.6649238,
+        "longitude": 77.0775405
+      },
+      "reading": {
+        "pm25": 170,
+        "co": 416
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-14/011_itinerary-81-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-14/011_itinerary-81-part-1.jpg",
+        "original_name": "1778834332956284409943392934329.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-14/1778834355834-day-14-itinerary-81-part-1.jpg"
+      },
+      "metadata": {
+        "day": 14,
+        "itinerary": "81-1",
+        "title": "Itinerary 81 - Part 1",
+        "stop_id": "81.3",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "81.3"
+      }
+    },
+    {
+      "id": "63b6f777-e08e-4240-8980-9052b6aec16f",
+      "timestamp": "2026-05-15T13:47:51.730000+05:30",
+      "timestamp_utc": "2026-05-15T08:17:51.73+00:00",
+      "gps": {
+        "latitude": 28.6820224,
+        "longitude": 77.0345918
+      },
+      "reading": {
+        "pm25": 73,
+        "co": 419
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-14/012_itinerary-81-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-14/012_itinerary-81-part-1.jpg",
+        "original_name": "17788330411282752537953465193171.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-14/1778833071887-day-14-itinerary-81-part-1.jpg"
+      },
+      "metadata": {
+        "day": 14,
+        "itinerary": "81-1",
+        "title": "Itinerary 81 - Part 1",
+        "stop_id": "81.1",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "81.1"
+      }
+    },
+    {
+      "id": "c386233b-68b4-48b5-bf89-b2382d54fbbd",
+      "timestamp": "2026-05-15T11:54:42.469000+05:30",
+      "timestamp_utc": "2026-05-15T06:24:42.469+00:00",
+      "gps": {
+        "latitude": 28.7037712,
+        "longitude": 76.9779063
+      },
+      "reading": {
+        "pm25": 73,
+        "co": 410
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-14/013_itinerary-79-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-14/013_itinerary-79-part-1.jpg",
+        "original_name": "17788262590934481584373472671298.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-14/1778826282687-day-14-itinerary-79-part-1.jpg"
+      },
+      "metadata": {
+        "day": 14,
+        "itinerary": "79-1",
+        "title": "Itinerary 79 - Part 1",
+        "stop_id": "79.3",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "79.3"
+      }
+    },
+    {
+      "id": "5ecf3ada-8bb5-4770-a936-dc675cbb7f9c",
+      "timestamp": "2026-05-15T11:39:19.774000+05:30",
+      "timestamp_utc": "2026-05-15T06:09:19.774+00:00",
+      "gps": {
+        "latitude": 28.7161876,
+        "longitude": 76.9598751
+      },
+      "reading": {
+        "pm25": 72,
+        "co": 418
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-14/014_itinerary-79-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-14/014_itinerary-79-part-1.jpg",
+        "original_name": "17788253436786764150621839925057.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-14/1778825359974-day-14-itinerary-79-part-1.jpg"
+      },
+      "metadata": {
+        "day": 14,
+        "itinerary": "79-1",
+        "title": "Itinerary 79 - Part 1",
+        "stop_id": "79.2",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "79.2"
+      }
+    },
+    {
+      "id": "3761fc76-5e01-4c68-8956-48d8072ee953",
+      "timestamp": "2026-05-15T11:25:07.716000+05:30",
+      "timestamp_utc": "2026-05-15T05:55:07.716+00:00",
+      "gps": {
+        "latitude": 28.7292683,
+        "longitude": 76.9974451
+      },
+      "reading": {
+        "pm25": 84,
+        "co": 413
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-14/015_itinerary-79-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-14/015_itinerary-79-part-1.jpg",
+        "original_name": "17788244519507287287825388056541.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-14/1778824507874-day-14-itinerary-79-part-1.jpg"
+      },
+      "metadata": {
+        "day": 14,
+        "itinerary": "79-1",
+        "title": "Itinerary 79 - Part 1",
+        "stop_id": "79.1",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "79.1"
+      }
+    },
+    {
+      "id": "79b29112-46b1-4858-aeb7-4fec48e22b57",
+      "timestamp": "2026-05-15T11:06:42.180000+05:30",
+      "timestamp_utc": "2026-05-15T05:36:42.18+00:00",
+      "gps": {
+        "latitude": 28.6965111,
+        "longitude": 77.0009161
+      },
+      "reading": {
+        "pm25": 88,
+        "co": 918
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-14/016_itinerary-16-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-14/016_itinerary-16-part-1.jpg",
+        "original_name": "17788233715458748368608511561075.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-14/1778823402556-day-14-itinerary-16-part-1.jpg"
+      },
+      "metadata": {
+        "day": 14,
+        "itinerary": "16-1",
+        "title": "Itinerary 16 - Part 1",
+        "stop_id": "16.8",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "16.8"
+      }
+    },
+    {
+      "id": "0b3fe6fc-63bb-491d-9e44-b00b9dbd565f",
+      "timestamp": "2026-05-15T10:57:03.701000+05:30",
+      "timestamp_utc": "2026-05-15T05:27:03.701+00:00",
+      "gps": {
+        "latitude": 28.7043211,
+        "longitude": 76.9890102
+      },
+      "reading": {
+        "pm25": 79,
+        "co": 666
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-14/017_itinerary-16-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-14/017_itinerary-16-part-1.jpg",
+        "original_name": "17788228105627842990073763750981.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-14/1778822823880-day-14-itinerary-16-part-1.jpg"
+      },
+      "metadata": {
+        "day": 14,
+        "itinerary": "16-1",
+        "title": "Itinerary 16 - Part 1",
+        "stop_id": "16.7",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "16.7"
+      }
+    },
+    {
+      "id": "6fa9ee4f-b318-4fa5-8b3a-852d11d034a1",
+      "timestamp": "2026-05-15T10:44:31.706000+05:30",
+      "timestamp_utc": "2026-05-15T05:14:31.706+00:00",
+      "gps": {
+        "latitude": 28.7068081,
+        "longitude": 76.9681153
+      },
+      "reading": {
+        "pm25": 84,
+        "co": 476
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-14/018_itinerary-16-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-14/018_itinerary-16-part-1.jpg",
+        "original_name": "17788220370625080240813643437121.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-14/1778822071894-day-14-itinerary-16-part-1.jpg"
+      },
+      "metadata": {
+        "day": 14,
+        "itinerary": "16-1",
+        "title": "Itinerary 16 - Part 1",
+        "stop_id": "16.6",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "16.6"
+      }
+    },
+    {
+      "id": "abebe422-f531-4d0c-b08d-fb7319ee69d4",
+      "timestamp": "2026-05-15T10:37:30.888000+05:30",
+      "timestamp_utc": "2026-05-15T05:07:30.888+00:00",
+      "gps": {
+        "latitude": 28.6940399,
+        "longitude": 76.9694784
+      },
+      "reading": {
+        "pm25": 181,
+        "co": 419
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-14/019_itinerary-16-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-14/019_itinerary-16-part-1.jpg",
+        "original_name": "17788216359882208415665313738686.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-14/1778821651564-day-14-itinerary-16-part-1.jpg"
+      },
+      "metadata": {
+        "day": 14,
+        "itinerary": "16-1",
+        "title": "Itinerary 16 - Part 1",
+        "stop_id": "16.5",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "16.5"
+      }
+    },
+    {
+      "id": "5c90ca81-61b3-44de-9986-d21a4e958dde",
+      "timestamp": "2026-05-15T10:20:41.035000+05:30",
+      "timestamp_utc": "2026-05-15T04:50:41.035+00:00",
+      "gps": {
+        "latitude": 28.6814457,
+        "longitude": 76.9749982
+      },
+      "reading": {
+        "pm25": 94,
+        "co": 582
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-14/020_itinerary-16-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-14/020_itinerary-16-part-1.jpg",
+        "original_name": "17788206196045681065695640985210.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-14/1778820641556-day-14-itinerary-16-part-1.jpg"
+      },
+      "metadata": {
+        "day": 14,
+        "itinerary": "16-1",
+        "title": "Itinerary 16 - Part 1",
+        "stop_id": "16.4",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "16.4"
+      }
+    },
+    {
+      "id": "9ce63256-8c2f-4b6e-b3a5-d0ea4cefd780",
+      "timestamp": "2026-05-15T10:16:35.564000+05:30",
+      "timestamp_utc": "2026-05-15T04:46:35.564+00:00",
+      "gps": {
+        "latitude": 28.6826238,
+        "longitude": 76.9743461
+      },
+      "reading": {
+        "pm25": 98,
+        "co": 411
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-14/021_itinerary-16-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-14/021_itinerary-16-part-1.jpg",
+        "original_name": "17788203630842579324254302727458.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-14/1778820395725-day-14-itinerary-16-part-1.jpg"
+      },
+      "metadata": {
+        "day": 14,
+        "itinerary": "16-1",
+        "title": "Itinerary 16 - Part 1",
+        "stop_id": "16.3",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "16.3"
+      }
+    },
+    {
+      "id": "4743838a-9c37-4d02-8f99-e1fb718696ab",
+      "timestamp": "2026-05-15T09:56:19.372000+05:30",
+      "timestamp_utc": "2026-05-15T04:26:19.372+00:00",
+      "gps": {
+        "latitude": 28.6976376,
+        "longitude": 77.029802
+      },
+      "reading": {
+        "pm25": 108,
+        "co": 846
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-14/022_itinerary-16-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-14/022_itinerary-16-part-1.jpg",
+        "original_name": "17788191517639048543424851892279.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-14/1778819179575-day-14-itinerary-16-part-1.jpg"
+      },
+      "metadata": {
+        "day": 14,
+        "itinerary": "16-1",
+        "title": "Itinerary 16 - Part 1",
+        "stop_id": "16.2",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "16.2"
+      }
+    },
+    {
+      "id": "d9e8503c-87e4-465a-91ad-5aef6126463d",
+      "timestamp": "2026-05-15T09:48:03.045000+05:30",
+      "timestamp_utc": "2026-05-15T04:18:03.045+00:00",
+      "gps": {
+        "latitude": 28.6896046,
+        "longitude": 77.0277373
+      },
+      "reading": {
+        "pm25": 119,
+        "co": 405
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-14/023_itinerary-16-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-14/023_itinerary-16-part-1.jpg",
+        "original_name": "17788186642107686148784269873545.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-14/1778818683576-day-14-itinerary-16-part-1.jpg"
+      },
+      "metadata": {
+        "day": 14,
+        "itinerary": "16-1",
+        "title": "Itinerary 16 - Part 1",
+        "stop_id": "16.1",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "16.1"
+      }
+    },
+    {
+      "id": "b27ce549-b0ac-405d-bb79-cebf3e109f69",
+      "timestamp": "2026-05-14T20:58:12.040000+05:30",
+      "timestamp_utc": "2026-05-14T15:28:12.04+00:00",
+      "gps": {
+        "latitude": 28.626234,
+        "longitude": 77.2274993
+      },
+      "reading": {
+        "pm25": 80,
+        "co": 404
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-15/001_itinerary-42-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-15/001_itinerary-42-part-1.jpg",
+        "original_name": "17787724738304889122117882948740.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-15/1778772492587-day-15-itinerary-42-part-1.jpg"
+      },
+      "metadata": {
+        "day": 15,
+        "itinerary": "42-1",
+        "title": "Itinerary 42 - Part 1",
+        "stop_id": "42.2",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "42.2"
+      }
+    },
+    {
+      "id": "4378f906-383b-42ad-88bb-746d0bffc49e",
+      "timestamp": "2026-05-14T20:53:45.850000+05:30",
+      "timestamp_utc": "2026-05-14T15:23:45.85+00:00",
+      "gps": {
+        "latitude": 28.6218001,
+        "longitude": 77.2261125
+      },
+      "reading": {
+        "pm25": 99,
+        "co": 411
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-15/002_itinerary-42-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-15/002_itinerary-42-part-1.jpg",
+        "original_name": "17787721838772938750377911018289.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-15/1778772226596-day-15-itinerary-42-part-1.jpg"
+      },
+      "metadata": {
+        "day": 15,
+        "itinerary": "42-1",
+        "title": "Itinerary 42 - Part 1",
+        "stop_id": "42.1",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "42.1"
+      }
+    },
+    {
+      "id": "02cdd83b-2b06-44c0-afce-1b28f6430000",
+      "timestamp": "2026-05-14T17:32:29.684000+05:30",
+      "timestamp_utc": "2026-05-14T12:02:29.684+00:00",
+      "gps": {
+        "latitude": 28.6302439,
+        "longitude": 76.9998524
+      },
+      "reading": {
+        "pm25": 119,
+        "co": 978
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-15/003_itinerary-13-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-15/003_itinerary-13-part-1.jpg",
+        "original_name": "17787601328538159222306910558991.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-15/1778760149831-day-15-itinerary-13-part-1.jpg"
+      },
+      "metadata": {
+        "day": 15,
+        "itinerary": "13-1",
+        "title": "Itinerary 13 - Part 1",
+        "stop_id": "13.4",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "13.4"
+      }
+    },
+    {
+      "id": "f2e0ed33-cc49-42ef-b4c7-8df36d34871c",
+      "timestamp": "2026-05-14T17:18:58.735000+05:30",
+      "timestamp_utc": "2026-05-14T11:48:58.735+00:00",
+      "gps": {
+        "latitude": 28.6533369,
+        "longitude": 77.0351347
+      },
+      "reading": {
+        "pm25": 584,
+        "co": 420
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-15/004_itinerary-13-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-15/004_itinerary-13-part-1.jpg",
+        "original_name": "17787593048111889997169921180882.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-15/1778759338888-day-15-itinerary-13-part-1.jpg"
+      },
+      "metadata": {
+        "day": 15,
+        "itinerary": "13-1",
+        "title": "Itinerary 13 - Part 1",
+        "stop_id": "13.3",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "13.3"
+      }
+    },
+    {
+      "id": "471f0a2f-b758-4e86-aa20-b6bcb858b73e",
+      "timestamp": "2026-05-14T17:03:40.901000+05:30",
+      "timestamp_utc": "2026-05-14T11:33:40.901+00:00",
+      "gps": {
+        "latitude": 28.6405479,
+        "longitude": 77.0375164
+      },
+      "reading": {
+        "pm25": 151,
+        "co": 635
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-15/005_itinerary-13-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-15/005_itinerary-13-part-1.jpg",
+        "original_name": "17787583880383702769198381160855.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-15/1778758421009-day-15-itinerary-13-part-1.jpg"
+      },
+      "metadata": {
+        "day": 15,
+        "itinerary": "13-1",
+        "title": "Itinerary 13 - Part 1",
+        "stop_id": "13.2",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "13.2"
+      }
+    },
+    {
+      "id": "8fb86d50-b047-44e9-93d1-80981ec7b25a",
+      "timestamp": "2026-05-14T16:51:06.977000+05:30",
+      "timestamp_utc": "2026-05-14T11:21:06.977+00:00",
+      "gps": {
+        "latitude": 28.6352054,
+        "longitude": 77.0333859
+      },
+      "reading": {
+        "pm25": 168,
+        "co": 419
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-15/006_itinerary-13-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-15/006_itinerary-13-part-1.jpg",
+        "original_name": "17787576486753689321833717505372.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-15/1778757667607-day-15-itinerary-13-part-1.jpg"
+      },
+      "metadata": {
+        "day": 15,
+        "itinerary": "13-1",
+        "title": "Itinerary 13 - Part 1",
+        "stop_id": "13.1",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "13.1"
+      }
+    },
+    {
+      "id": "645250e8-84ab-494a-8a9d-dfb3cb3f1570",
+      "timestamp": "2026-05-14T15:29:05.774000+05:30",
+      "timestamp_utc": "2026-05-14T09:59:05.774+00:00",
+      "gps": {
+        "latitude": 28.6651764,
+        "longitude": 77.0145867
+      },
+      "reading": {
+        "pm25": 100,
+        "co": 548
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-15/007_itinerary-78-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-15/007_itinerary-78-part-1.jpg",
+        "original_name": "17787527171993415350216220054135.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-15/1778752745943-day-15-itinerary-78-part-1.jpg"
+      },
+      "metadata": {
+        "day": 15,
+        "itinerary": "78-1",
+        "title": "Itinerary 78 - Part 1",
+        "stop_id": "78.3",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "78.3"
+      }
+    },
+    {
+      "id": "7ef100bd-2d1d-47bb-abe2-e1e04da2829d",
+      "timestamp": "2026-05-14T15:22:02.704000+05:30",
+      "timestamp_utc": "2026-05-14T09:52:02.704+00:00",
+      "gps": {
+        "latitude": 28.6664221,
+        "longitude": 77.0169664
+      },
+      "reading": {
+        "pm25": 80,
+        "co": 409
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-15/008_itinerary-78-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-15/008_itinerary-78-part-1.jpg",
+        "original_name": "17787522922966411877468292554453.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-15/1778752322826-day-15-itinerary-78-part-1.jpg"
+      },
+      "metadata": {
+        "day": 15,
+        "itinerary": "78-1",
+        "title": "Itinerary 78 - Part 1",
+        "stop_id": "78.2",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "78.2"
+      }
+    },
+    {
+      "id": "5c48f623-210e-4de4-8304-d245ffd39535",
+      "timestamp": "2026-05-14T15:01:23.424000+05:30",
+      "timestamp_utc": "2026-05-14T09:31:23.424+00:00",
+      "gps": {
+        "latitude": 28.6498132,
+        "longitude": 77.0504154
+      },
+      "reading": {
+        "pm25": 94,
+        "co": 976
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-15/009_itinerary-78-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-15/009_itinerary-78-part-1.jpg",
+        "original_name": "17787510656482910075436977280580.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-15/1778751083619-day-15-itinerary-78-part-1.jpg"
+      },
+      "metadata": {
+        "day": 15,
+        "itinerary": "78-1",
+        "title": "Itinerary 78 - Part 1",
+        "stop_id": "78.1",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "78.1"
+      }
+    },
+    {
+      "id": "9a0ce6af-1e6a-40c6-8bdb-4f0fbcf69f26",
+      "timestamp": "2026-05-14T14:39:17.580000+05:30",
+      "timestamp_utc": "2026-05-14T09:09:17.58+00:00",
+      "gps": {
+        "latitude": 28.6445466,
+        "longitude": 77.0884918
+      },
+      "reading": {
+        "pm25": 91,
+        "co": 409
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-15/010_itinerary-10-part-2.jpg",
+      "image": {
+        "local_path": "images/pollution/day-15/010_itinerary-10-part-2.jpg",
+        "original_name": "17787497128065357471924159258693.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-15/1778749757690-day-15-itinerary-10-part-2.jpg"
+      },
+      "metadata": {
+        "day": 15,
+        "itinerary": "10-2",
+        "title": "Itinerary 10 - Part 2",
+        "stop_id": "10.4",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "10.4"
+      }
+    },
+    {
+      "id": "cab30a91-8238-4060-b570-44828049426f",
+      "timestamp": "2026-05-14T14:35:39.578000+05:30",
+      "timestamp_utc": "2026-05-14T09:05:39.578+00:00",
+      "gps": {
+        "latitude": 28.6438134,
+        "longitude": 77.0889539
+      },
+      "reading": {
+        "pm25": 111,
+        "co": 418
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-15/011_itinerary-10-part-2.jpg",
+      "image": {
+        "local_path": "images/pollution/day-15/011_itinerary-10-part-2.jpg",
+        "original_name": "17787495186615882312792942926800.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-15/1778749539746-day-15-itinerary-10-part-2.jpg"
+      },
+      "metadata": {
+        "day": 15,
+        "itinerary": "10-2",
+        "title": "Itinerary 10 - Part 2",
+        "stop_id": "10.3",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "10.3"
+      }
+    },
+    {
+      "id": "e2afdcba-21f2-400d-b238-644de7b57162",
+      "timestamp": "2026-05-14T14:11:37.789000+05:30",
+      "timestamp_utc": "2026-05-14T08:41:37.789+00:00",
+      "gps": {
+        "latitude": 28.6524979,
+        "longitude": 77.0328898
+      },
+      "reading": {
+        "pm25": 106,
+        "co": 523
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-15/012_itinerary-10-part-2.jpg",
+      "image": {
+        "local_path": "images/pollution/day-15/012_itinerary-10-part-2.jpg",
+        "original_name": "17787480565314559657083143472712.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-15/1778748098013-day-15-itinerary-10-part-2.jpg"
+      },
+      "metadata": {
+        "day": 15,
+        "itinerary": "10-2",
+        "title": "Itinerary 10 - Part 2",
+        "stop_id": "10.2",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "10.2"
+      }
+    },
+    {
+      "id": "78c4983e-9ad2-4f76-9c33-0dc8d2f2a1c4",
+      "timestamp": "2026-05-14T14:02:33.328000+05:30",
+      "timestamp_utc": "2026-05-14T08:32:33.328+00:00",
+      "gps": {
+        "latitude": 28.6445982,
+        "longitude": 77.0179111
+      },
+      "reading": {
+        "pm25": 181,
+        "co": 520
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-15/013_itinerary-10-part-2.jpg",
+      "image": {
+        "local_path": "images/pollution/day-15/013_itinerary-10-part-2.jpg",
+        "original_name": "17787475181123289396255302272147.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-15/1778747553611-day-15-itinerary-10-part-2.jpg"
+      },
+      "metadata": {
+        "day": 15,
+        "itinerary": "10-2",
+        "title": "Itinerary 10 - Part 2",
+        "stop_id": "10.1",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "10.1"
+      }
+    },
+    {
+      "id": "cdd78b01-f2f8-4361-8966-5c8c581984f5",
+      "timestamp": "2026-05-14T13:42:49.063000+05:30",
+      "timestamp_utc": "2026-05-14T08:12:49.063+00:00",
+      "gps": {
+        "latitude": 28.6661412,
+        "longitude": 76.9792208
+      },
+      "reading": {
+        "pm25": 75,
+        "co": 575
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-15/014_itinerary-15-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-15/014_itinerary-15-part-1.jpg",
+        "original_name": "17787463316261935422330774441507.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-15/1778746370264-day-15-itinerary-15-part-1.jpg"
+      },
+      "metadata": {
+        "day": 15,
+        "itinerary": "15-1",
+        "title": "Itinerary 15 - Part 1",
+        "stop_id": "15.8",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "15.8"
+      }
+    },
+    {
+      "id": "04897f7c-7fe8-4b46-ad97-b839b18b2457",
+      "timestamp": "2026-05-14T13:14:09.515000+05:30",
+      "timestamp_utc": "2026-05-14T07:44:09.515+00:00",
+      "gps": {
+        "latitude": 28.665221,
+        "longitude": 76.9426745
+      },
+      "reading": {
+        "pm25": 99,
+        "co": 404
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-15/015_itinerary-78-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-15/015_itinerary-78-part-1.jpg",
+        "original_name": "17787446277663311012505922536443.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-15/1778744649710-day-15-itinerary-78-part-1.jpg"
+      },
+      "metadata": {
+        "day": 15,
+        "itinerary": "78-1",
+        "title": "Itinerary 78 - Part 1",
+        "stop_id": "15.7",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "15.7"
+      }
+    },
+    {
+      "id": "9d6acaac-87b6-4386-873d-6c7b8cc8c8a5",
+      "timestamp": "2026-05-14T12:43:18.504000+05:30",
+      "timestamp_utc": "2026-05-14T07:13:18.504+00:00",
+      "gps": {
+        "latitude": 28.6557411,
+        "longitude": 76.9496655
+      },
+      "reading": {
+        "pm25": 91,
+        "co": 413
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-15/016_itinerary-15-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-15/016_itinerary-15-part-1.jpg",
+        "original_name": "17787427640634784646355808636274.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-15/1778742798676-day-15-itinerary-15-part-1.jpg"
+      },
+      "metadata": {
+        "day": 15,
+        "itinerary": "15-1",
+        "title": "Itinerary 15 - Part 1",
+        "stop_id": "15.6",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "15.6"
+      }
+    },
+    {
+      "id": "47ddc8f3-5b40-4470-9156-a960463a3c52",
+      "timestamp": "2026-05-14T12:16:54.678000+05:30",
+      "timestamp_utc": "2026-05-14T06:46:54.678+00:00",
+      "gps": {
+        "latitude": 28.6312835,
+        "longitude": 76.9732022
+      },
+      "reading": {
+        "pm25": 86,
+        "co": 656
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-15/017_itinerary-15-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-15/017_itinerary-15-part-1.jpg",
+        "original_name": "17787411906615375216192126940385.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-15/1778741214822-day-15-itinerary-15-part-1.jpg"
+      },
+      "metadata": {
+        "day": 15,
+        "itinerary": "15-1",
+        "title": "Itinerary 15 - Part 1",
+        "stop_id": "15.5",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "15.5"
+      }
+    },
+    {
+      "id": "f4c47345-563a-4b20-83fe-dffc28bc896e",
+      "timestamp": "2026-05-14T12:11:17.117000+05:30",
+      "timestamp_utc": "2026-05-14T06:41:17.117+00:00",
+      "gps": {
+        "latitude": 28.6310248,
+        "longitude": 76.9709807
+      },
+      "reading": {
+        "pm25": 122,
+        "co": 437
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-15/018_itinerary-15-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-15/018_itinerary-15-part-1.jpg",
+        "original_name": "17787408551398307414755686570896.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-15/1778740877641-day-15-itinerary-15-part-1.jpg"
+      },
+      "metadata": {
+        "day": 15,
+        "itinerary": "15-1",
+        "title": "Itinerary 15 - Part 1",
+        "stop_id": "15.4",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "15.4",
+        "address": "Najafgarh, Najafgarh Tehsil, South West Delhi, Delhi, 110043, India",
+        "road_type": "residential",
+        "road_name": ""
+      }
+    },
+    {
+      "id": "998956bd-f313-48af-aa93-453db65f7d29",
+      "timestamp": "2026-05-14T12:06:16.300000+05:30",
+      "timestamp_utc": "2026-05-14T06:36:16.3+00:00",
+      "gps": {
+        "latitude": 28.6282749,
+        "longitude": 76.9670803
+      },
+      "reading": {
+        "pm25": 73,
+        "co": 657
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-15/019_itinerary-15-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-15/019_itinerary-15-part-1.jpg",
+        "original_name": "17787405601346961668979627832575.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-15/1778740576644-day-15-itinerary-15-part-1.jpg"
+      },
+      "metadata": {
+        "day": 15,
+        "itinerary": "15-1",
+        "title": "Itinerary 15 - Part 1",
+        "stop_id": "15.3",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "15.3"
+      }
+    },
+    {
+      "id": "c57bf454-298e-4f2e-b581-76fb098e7848",
+      "timestamp": "2026-05-14T11:47:02.002000+05:30",
+      "timestamp_utc": "2026-05-14T06:17:02.002+00:00",
+      "gps": {
+        "latitude": 28.6259305,
+        "longitude": 76.9430416
+      },
+      "reading": {
+        "pm25": 62,
+        "co": 499
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-15/020_itinerary-15-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-15/020_itinerary-15-part-1.jpg",
+        "original_name": "17787394044225910958216282705037.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-15/1778739422633-day-15-itinerary-15-part-1.jpg"
+      },
+      "metadata": {
+        "day": 15,
+        "itinerary": "15-1",
+        "title": "Itinerary 15 - Part 1",
+        "stop_id": "15.2",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "15.2"
+      }
+    },
+    {
+      "id": "31a072a4-5897-47bf-8c7c-45b029bc4591",
+      "timestamp": "2026-05-14T11:41:23.296000+05:30",
+      "timestamp_utc": "2026-05-14T06:11:23.296+00:00",
+      "gps": {
+        "latitude": 28.6270912,
+        "longitude": 76.9484201
+      },
+      "reading": {
+        "pm25": 72,
+        "co": 406
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-15/021_itinerary-15-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-15/021_itinerary-15-part-1.jpg",
+        "original_name": "17787390372322471206867732682907.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-15/1778739083663-day-15-itinerary-15-part-1.jpg"
+      },
+      "metadata": {
+        "day": 15,
+        "itinerary": "15-1",
+        "title": "Itinerary 15 - Part 1",
+        "stop_id": "15.1",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "15.1"
+      }
+    },
+    {
+      "id": "bd8e2569-b5e9-4578-88f6-73f4087bcab6",
+      "timestamp": "2026-05-13T20:30:57.767000+05:30",
+      "timestamp_utc": "2026-05-13T15:00:57.767+00:00",
+      "gps": {
+        "latitude": 28.6379051,
+        "longitude": 77.2075116
+      },
+      "reading": {
+        "pm25": 66,
+        "co": 412
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-13/001_itinerary-43-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-13/001_itinerary-43-part-1.jpg",
+        "original_name": "17786844134427097011344705481149.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-13/1778684458662-day-13-itinerary-43-part-1.jpg"
+      },
+      "metadata": {
+        "day": 13,
+        "itinerary": "43-1",
+        "title": "Itinerary 43 - Part 1",
+        "stop_id": "43.7",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "43.7"
+      }
+    },
+    {
+      "id": "d03d499a-aa88-4617-89a4-446aface5edb",
+      "timestamp": "2026-05-13T20:05:25.525000+05:30",
+      "timestamp_utc": "2026-05-13T14:35:25.525+00:00",
+      "gps": {
+        "latitude": 28.6538273,
+        "longitude": 77.1827426
+      },
+      "reading": {
+        "pm25": 188,
+        "co": 408
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-13/002_itinerary-43-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-13/002_itinerary-43-part-1.jpg",
+        "original_name": "17786828722101762140949132629468.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-13/1778682925685-day-13-itinerary-43-part-1.jpg"
+      },
+      "metadata": {
+        "day": 13,
+        "itinerary": "43-1",
+        "title": "Itinerary 43 - Part 1",
+        "stop_id": "43.6",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "43.6"
+      }
+    },
+    {
+      "id": "a06d4794-3f37-4e9e-9cfd-b6c9c6cb1558",
+      "timestamp": "2026-05-13T19:48:46.934000+05:30",
+      "timestamp_utc": "2026-05-13T14:18:46.934+00:00",
+      "gps": {
+        "latitude": 28.6638078,
+        "longitude": 77.179207
+      },
+      "reading": {
+        "pm25": 536,
+        "co": 417
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-13/003_itinerary-43-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-13/003_itinerary-43-part-1.jpg",
+        "original_name": "17786818912465960801063925720604.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-13/1778681927065-day-13-itinerary-43-part-1.jpg"
+      },
+      "metadata": {
+        "day": 13,
+        "itinerary": "43-1",
+        "title": "Itinerary 43 - Part 1",
+        "stop_id": "43.5",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "43.5"
+      }
+    },
+    {
+      "id": "722a6102-2111-4bb1-bbc6-c5bfe491f01d",
+      "timestamp": "2026-05-13T19:30:18.186000+05:30",
+      "timestamp_utc": "2026-05-13T14:00:18.186+00:00",
+      "gps": {
+        "latitude": 28.6648599,
+        "longitude": 77.1953918
+      },
+      "reading": {
+        "pm25": 396,
+        "co": 401
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-13/004_itinerary-43-part-2.jpg",
+      "image": {
+        "local_path": "images/pollution/day-13/004_itinerary-43-part-2.jpg",
+        "original_name": "17786807894702505539470429294589.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-13/1778680818658-day-13-itinerary-43-part-2.jpg"
+      },
+      "metadata": {
+        "day": 13,
+        "itinerary": "43-2",
+        "title": "Itinerary 43 - Part 2",
+        "stop_id": "43.4",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "43.4"
+      }
+    },
+    {
+      "id": "e0274cea-97e5-4e44-b4e6-7a62bc5a9110",
+      "timestamp": "2026-05-13T19:14:39.295000+05:30",
+      "timestamp_utc": "2026-05-13T13:44:39.295+00:00",
+      "gps": {
+        "latitude": 28.6685165,
+        "longitude": 77.1826129
+      },
+      "reading": {
+        "pm25": 215,
+        "co": 417
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-13/005_itinerary-43-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-13/005_itinerary-43-part-1.jpg",
+        "original_name": "17786798477216309554946106256135.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-13/1778679879674-day-13-itinerary-43-part-1.jpg"
+      },
+      "metadata": {
+        "day": 13,
+        "itinerary": "43-1",
+        "title": "Itinerary 43 - Part 1",
+        "stop_id": "43.2",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "43.2"
+      }
+    },
+    {
+      "id": "88f6b259-2160-40ac-8757-fb4ae2ffe3a7",
+      "timestamp": "2026-05-13T18:20:22.183000+05:30",
+      "timestamp_utc": "2026-05-13T12:50:22.183+00:00",
+      "gps": {
+        "latitude": 28.6811517,
+        "longitude": 77.0821618
+      },
+      "reading": {
+        "pm25": 121,
+        "co": 409
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-13/006_itinerary-50-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-13/006_itinerary-50-part-1.jpg",
+        "original_name": "17786766051335567147802691765601.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-13/1778676622677-day-13-itinerary-50-part-1.jpg"
+      },
+      "metadata": {
+        "day": 13,
+        "itinerary": "50-1",
+        "title": "Itinerary 50 - Part 1",
+        "stop_id": "43.1",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "43.1"
+      }
+    },
+    {
+      "id": "8d2fd046-9f2e-4dc1-9097-df8c7b22b419",
+      "timestamp": "2026-05-13T16:50:02.636000+05:30",
+      "timestamp_utc": "2026-05-13T11:20:02.636+00:00",
+      "gps": {
+        "latitude": 28.6927002,
+        "longitude": 77.021783
+      },
+      "reading": {
+        "pm25": 96,
+        "co": 1023
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-13/007_itinerary-80-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-13/007_itinerary-80-part-1.jpg",
+        "original_name": "17786711841416628480313252608050.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-13/1778671202779-day-13-itinerary-80-part-1.jpg"
+      },
+      "metadata": {
+        "day": 13,
+        "itinerary": "80-1",
+        "title": "Itinerary 80 - Part 1",
+        "stop_id": "80.2",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "80.2"
+      }
+    },
+    {
+      "id": "d06b3fb4-fb93-448b-b8a4-9074fd7bd311",
+      "timestamp": "2026-05-13T16:38:39.857000+05:30",
+      "timestamp_utc": "2026-05-13T11:08:39.857+00:00",
+      "gps": {
+        "latitude": 28.7247163,
+        "longitude": 77.0406798
+      },
+      "reading": {
+        "pm25": 104,
+        "co": 978
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-13/008_itinerary-80-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-13/008_itinerary-80-part-1.jpg",
+        "original_name": "17786704928508044577055271587974.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-13/1778670520049-day-13-itinerary-80-part-1.jpg"
+      },
+      "metadata": {
+        "day": 13,
+        "itinerary": "80-1",
+        "title": "Itinerary 80 - Part 1",
+        "stop_id": "80.1",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "80.1"
+      }
+    },
+    {
+      "id": "180bea37-9bff-4746-9a1b-efef691c1ac3",
+      "timestamp": "2026-05-13T16:04:22.670000+05:30",
+      "timestamp_utc": "2026-05-13T10:34:22.67+00:00",
+      "gps": {
+        "latitude": 28.7109917,
+        "longitude": 77.0639608
+      },
+      "reading": {
+        "pm25": 349,
+        "co": 787
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-13/009_itinerary-23-part-2.jpg",
+      "image": {
+        "local_path": "images/pollution/day-13/009_itinerary-23-part-2.jpg",
+        "original_name": "17786684459356941738573987979108.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-13/1778668462852-day-13-itinerary-23-part-2.jpg"
+      },
+      "metadata": {
+        "day": 13,
+        "itinerary": "23-2",
+        "title": "Itinerary 23 - Part 2",
+        "stop_id": "23.5",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "23.5"
+      }
+    },
+    {
+      "id": "daa99ff7-0bc8-4234-a21d-16577207f788",
+      "timestamp": "2026-05-13T15:55:35.209000+05:30",
+      "timestamp_utc": "2026-05-13T10:25:35.209+00:00",
+      "gps": {
+        "latitude": 28.713103,
+        "longitude": 77.0719572
+      },
+      "reading": {
+        "pm25": 100,
+        "co": 992
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-13/010_itinerary-23-part-2.jpg",
+      "image": {
+        "local_path": "images/pollution/day-13/010_itinerary-23-part-2.jpg",
+        "original_name": "17786679127963816437362652114867.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-13/1778667935675-day-13-itinerary-23-part-2.jpg"
+      },
+      "metadata": {
+        "day": 13,
+        "itinerary": "23-2",
+        "title": "Itinerary 23 - Part 2",
+        "stop_id": "23.5",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "23.5"
+      }
+    },
+    {
+      "id": "7bfa9397-31e2-4fb1-864b-c8b83a774800",
+      "timestamp": "2026-05-13T15:47:41.959000+05:30",
+      "timestamp_utc": "2026-05-13T10:17:41.959+00:00",
+      "gps": {
+        "latitude": 28.7091386,
+        "longitude": 77.0709101
+      },
+      "reading": {
+        "pm25": 104,
+        "co": 1497
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-13/011_itinerary-23-part-2.jpg",
+      "image": {
+        "local_path": "images/pollution/day-13/011_itinerary-23-part-2.jpg",
+        "original_name": "17786674375533486487879575887231.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-13/1778667462093-day-13-itinerary-23-part-2.jpg"
+      },
+      "metadata": {
+        "day": 13,
+        "itinerary": "23-2",
+        "title": "Itinerary 23 - Part 2",
+        "stop_id": "23.3",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "23.3"
+      }
+    },
+    {
+      "id": "1e3b1eb0-a2c3-41d8-825f-8a421491eef1",
+      "timestamp": "2026-05-13T15:41:25.626000+05:30",
+      "timestamp_utc": "2026-05-13T10:11:25.626+00:00",
+      "gps": {
+        "latitude": 28.7040182,
+        "longitude": 77.074516
+      },
+      "reading": {
+        "pm25": 127,
+        "co": 1047
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-13/012_itinerary-23-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-13/012_itinerary-23-part-1.jpg",
+        "original_name": "17786670564882539409357774411882.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-13/1778667085779-day-13-itinerary-23-part-1.jpg"
+      },
+      "metadata": {
+        "day": 13,
+        "itinerary": "23-1",
+        "title": "Itinerary 23 - Part 1",
+        "stop_id": "23.3",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "23.3"
+      }
+    },
+    {
+      "id": "92d06ab1-8408-4595-ba0c-78d3c9ff0e95",
+      "timestamp": "2026-05-13T15:31:12.954000+05:30",
+      "timestamp_utc": "2026-05-13T10:01:12.954+00:00",
+      "gps": {
+        "latitude": 28.7040875,
+        "longitude": 77.0633642
+      },
+      "reading": {
+        "pm25": 196,
+        "co": 1315
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-13/013_itinerary-23-part-2.jpg",
+      "image": {
+        "local_path": "images/pollution/day-13/013_itinerary-23-part-2.jpg",
+        "original_name": "17786664408583883102255661030297.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-13/1778666473130-day-13-itinerary-23-part-2.jpg"
+      },
+      "metadata": {
+        "day": 13,
+        "itinerary": "23-2",
+        "title": "Itinerary 23 - Part 2",
+        "stop_id": "23.2",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "23.2"
+      }
+    },
+    {
+      "id": "ba193b3c-dca6-4236-8ac4-59e9c0b0c264",
+      "timestamp": "2026-05-13T15:24:09.139000+05:30",
+      "timestamp_utc": "2026-05-13T09:54:09.139+00:00",
+      "gps": {
+        "latitude": 28.7016918,
+        "longitude": 77.0661981
+      },
+      "reading": {
+        "pm25": 125,
+        "co": 415
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-13/014_itinerary-23-part-2.jpg",
+      "image": {
+        "local_path": "images/pollution/day-13/014_itinerary-23-part-2.jpg",
+        "original_name": "17786660273756669584069131389408.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-13/1778666049680-day-13-itinerary-23-part-2.jpg"
+      },
+      "metadata": {
+        "day": 13,
+        "itinerary": "23-2",
+        "title": "Itinerary 23 - Part 2",
+        "stop_id": "23.1",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "23.1",
+        "address": "Sultanpuri, Rohini Tehsil, North West Delhi, Delhi, 110086, India",
+        "road_type": "residential",
+        "road_name": ""
+      }
+    },
+    {
+      "id": "d517166a-a190-455a-9e13-85b216b833a1",
+      "timestamp": "2026-05-13T14:56:46.821000+05:30",
+      "timestamp_utc": "2026-05-13T09:26:46.821+00:00",
+      "gps": {
+        "latitude": 28.688335,
+        "longitude": 77.0987475
+      },
+      "reading": {
+        "pm25": 99,
+        "co": 1258
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-13/015_itinerary-31-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-13/015_itinerary-31-part-1.jpg",
+        "original_name": "17786643694551313109877740926687.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-13/1778664407990-day-13-itinerary-31-part-1.jpg"
+      },
+      "metadata": {
+        "day": 13,
+        "itinerary": "31-1",
+        "title": "Itinerary 31 - Part 1",
+        "stop_id": "31.9",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "31.9"
+      }
+    },
+    {
+      "id": "b3d2bd9b-d26b-4a07-9b3a-cea057838387",
+      "timestamp": "2026-05-13T14:31:05.188000+05:30",
+      "timestamp_utc": "2026-05-13T09:01:05.188+00:00",
+      "gps": {
+        "latitude": 28.6999418,
+        "longitude": 77.0946848
+      },
+      "reading": {
+        "pm25": 88,
+        "co": 411
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-13/016_itinerary-31-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-13/016_itinerary-31-part-1.jpg",
+        "original_name": "17786628400273171103636445501533.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-13/1778662865691-day-13-itinerary-31-part-1.jpg"
+      },
+      "metadata": {
+        "day": 13,
+        "itinerary": "31-1",
+        "title": "Itinerary 31 - Part 1",
+        "stop_id": "31.7",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "31.7"
+      }
+    },
+    {
+      "id": "4c5df44f-86a8-40ec-84dd-0495a50f2d90",
+      "timestamp": "2026-05-13T14:18:20.663000+05:30",
+      "timestamp_utc": "2026-05-13T08:48:20.663+00:00",
+      "gps": {
+        "latitude": 28.6978363,
+        "longitude": 77.1040073
+      },
+      "reading": {
+        "pm25": 91,
+        "co": 897
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-13/017_itinerary-31-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-13/017_itinerary-31-part-1.jpg",
+        "original_name": "17786620846191923318030893165776.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-13/1778662100875-day-13-itinerary-31-part-1.jpg"
+      },
+      "metadata": {
+        "day": 13,
+        "itinerary": "31-1",
+        "title": "Itinerary 31 - Part 1",
+        "stop_id": "31.5",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "31.5"
+      }
+    },
+    {
+      "id": "61e1412f-f0f9-4159-9c03-7f4aee43593a",
+      "timestamp": "2026-05-13T13:58:24.088000+05:30",
+      "timestamp_utc": "2026-05-13T08:28:24.088+00:00",
+      "gps": {
+        "latitude": 28.7102116,
+        "longitude": 77.1306817
+      },
+      "reading": {
+        "pm25": 92,
+        "co": 877
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-13/018_itinerary-31-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-13/018_itinerary-31-part-1.jpg",
+        "original_name": "17786608771781370898416178982941.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-13/1778660904700-day-13-itinerary-31-part-1.jpg"
+      },
+      "metadata": {
+        "day": 13,
+        "itinerary": "31-1",
+        "title": "Itinerary 31 - Part 1",
+        "stop_id": "31.4",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "31.4"
+      }
+    },
+    {
+      "id": "0b44af5d-decc-4273-9529-697368178449",
+      "timestamp": "2026-05-13T13:12:49.121000+05:30",
+      "timestamp_utc": "2026-05-13T07:42:49.121+00:00",
+      "gps": {
+        "latitude": 28.689466,
+        "longitude": 77.1299197
+      },
+      "reading": {
+        "pm25": 110,
+        "co": 726
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-13/019_itinerary-31-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-13/019_itinerary-31-part-1.jpg",
+        "original_name": "17786581308886987595725055965330.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-13/1778658169691-day-13-itinerary-31-part-1.jpg"
+      },
+      "metadata": {
+        "day": 13,
+        "itinerary": "31-1",
+        "title": "Itinerary 31 - Part 1",
+        "stop_id": "31.4",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "31.4"
+      }
+    },
+    {
+      "id": "076f3915-1bda-4052-a45c-84d5f259263b",
+      "timestamp": "2026-05-13T13:03:08.584000+05:30",
+      "timestamp_utc": "2026-05-13T07:33:08.584+00:00",
+      "gps": {
+        "latitude": 28.6895862,
+        "longitude": 77.1399808
+      },
+      "reading": {
+        "pm25": 91,
+        "co": 1026
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-13/020_itinerary-31-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-13/020_itinerary-31-part-1.jpg",
+        "original_name": "17786575589076620609726853880962.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-13/1778657588731-day-13-itinerary-31-part-1.jpg"
+      },
+      "metadata": {
+        "day": 13,
+        "itinerary": "31-1",
+        "title": "Itinerary 31 - Part 1",
+        "stop_id": "31.2",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "31.2"
+      }
+    },
+    {
+      "id": "9ae293ca-a0a0-4ec1-b436-de5da822ba59",
+      "timestamp": "2026-05-13T12:55:04.141000+05:30",
+      "timestamp_utc": "2026-05-13T07:25:04.141+00:00",
+      "gps": {
+        "latitude": 28.693986,
+        "longitude": 77.1506289
+      },
+      "reading": {
+        "pm25": 96,
+        "co": 1076
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-13/021_itinerary-31-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-13/021_itinerary-31-part-1.jpg",
+        "original_name": "177865706583989252148370428613.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-13/1778657104709-day-13-itinerary-31-part-1.jpg"
+      },
+      "metadata": {
+        "day": 13,
+        "itinerary": "31-1",
+        "title": "Itinerary 31 - Part 1",
+        "stop_id": "31.2",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "31.2"
+      }
+    },
+    {
+      "id": "31273936-a691-42c5-a0c8-9af1b3892637",
+      "timestamp": "2026-05-13T12:46:17.542000+05:30",
+      "timestamp_utc": "2026-05-13T07:16:17.542+00:00",
+      "gps": {
+        "latitude": 28.6842344,
+        "longitude": 77.1637702
+      },
+      "reading": {
+        "pm25": 91,
+        "co": 411
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-13/022_itinerary-31-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-13/022_itinerary-31-part-1.jpg",
+        "original_name": "17786565436263092724077897566352.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-13/1778656577724-day-13-itinerary-31-part-1.jpg"
+      },
+      "metadata": {
+        "day": 13,
+        "itinerary": "31-1",
+        "title": "Itinerary 31 - Part 1",
+        "stop_id": "31.1",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "31.1"
+      }
+    },
+    {
+      "id": "47a111e0-fb16-4627-be5f-5d1670bf8d4c",
+      "timestamp": "2026-05-13T12:23:35.908000+05:30",
+      "timestamp_utc": "2026-05-13T06:53:35.908+00:00",
+      "gps": {
+        "latitude": 28.6671961,
+        "longitude": 77.1937315
+      },
+      "reading": {
+        "pm25": 94,
+        "co": 1280
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-13/023_itinerary-43-part-2.jpg",
+      "image": {
+        "local_path": "images/pollution/day-13/023_itinerary-43-part-2.jpg",
+        "original_name": "17786551856336031774268237699271.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-13/1778655217162-day-13-itinerary-43-part-2.jpg"
+      },
+      "metadata": {
+        "day": 13,
+        "itinerary": "43-2",
+        "title": "Itinerary 43 - Part 2",
+        "stop_id": "43.2",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "43.2"
+      }
+    },
+    {
+      "id": "16122b6b-e015-43c8-b5c5-78b4f6adc3a6",
+      "timestamp": "2026-05-13T12:16:33.112000+05:30",
+      "timestamp_utc": "2026-05-13T06:46:33.112+00:00",
+      "gps": {
+        "latitude": 28.6648418,
+        "longitude": 77.1952409
+      },
+      "reading": {
+        "pm25": 94,
+        "co": 405
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-13/024_itinerary-43-part-2.jpg",
+      "image": {
+        "local_path": "images/pollution/day-13/024_itinerary-43-part-2.jpg",
+        "original_name": "17786547599141879121811960081877.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-13/1778654793695-day-13-itinerary-43-part-2.jpg"
+      },
+      "metadata": {
+        "day": 13,
+        "itinerary": "43-2",
+        "title": "Itinerary 43 - Part 2",
+        "stop_id": "43.1",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "43.1"
+      }
+    },
+    {
+      "id": "b964518b-eca2-4f62-849a-5692376b5700",
+      "timestamp": "2026-05-13T11:46:21.713000+05:30",
+      "timestamp_utc": "2026-05-13T06:16:21.713+00:00",
+      "gps": {
+        "latitude": 28.628268,
+        "longitude": 77.2163927
+      },
+      "reading": {
+        "pm25": 87.4,
+        "co": 415
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-13/025_itinerary-50-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-13/025_itinerary-50-part-1.jpg",
+        "original_name": "17786529557897062270975015456676.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-13/1778652982919-day-13-itinerary-50-part-1.jpg"
+      },
+      "metadata": {
+        "day": 13,
+        "itinerary": "50-1",
+        "title": "Itinerary 50 - Part 1",
+        "stop_id": "50.3",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "50.3"
+      }
+    },
+    {
+      "id": "c5e9d24f-6047-4ee8-8f26-93450b5f1199",
+      "timestamp": "2026-05-13T11:18:54.988000+05:30",
+      "timestamp_utc": "2026-05-13T05:48:54.988+00:00",
+      "gps": {
+        "latitude": 28.6589082,
+        "longitude": 77.2315846
+      },
+      "reading": {
+        "pm25": 248,
+        "co": 410
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-13/026_itinerary-50-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-13/026_itinerary-50-part-1.jpg",
+        "original_name": "17786512827324540889974109845959.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-13/1778651335730-day-13-itinerary-50-part-1.jpg"
+      },
+      "metadata": {
+        "day": 13,
+        "itinerary": "50-1",
+        "title": "Itinerary 50 - Part 1",
+        "stop_id": "50.2",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "50.2"
+      }
+    },
+    {
+      "id": "f069fda7-26a7-4bed-9168-087c19c4eb74",
+      "timestamp": "2026-05-13T11:00:16.711000+05:30",
+      "timestamp_utc": "2026-05-13T05:30:16.711+00:00",
+      "gps": {
+        "latitude": 28.6699942,
+        "longitude": 77.2190751
+      },
+      "reading": {
+        "pm25": 79,
+        "co": 406
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-13/027_itinerary-50-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-13/027_itinerary-50-part-1.jpg",
+        "original_name": "17786501923972641474354370134749.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-13/1778650216849-day-13-itinerary-50-part-1.jpg"
+      },
+      "metadata": {
+        "day": 13,
+        "itinerary": "50-1",
+        "title": "Itinerary 50 - Part 1",
+        "stop_id": "50.1",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "50.1"
+      }
+    },
+    {
+      "id": "d38b2475-319d-4fad-aff1-c2c6beb59fd3",
+      "timestamp": "2026-05-10T20:58:24.121000+05:30",
+      "timestamp_utc": "2026-05-10T15:28:24.121+00:00",
+      "gps": {
+        "latitude": 28.6257591,
+        "longitude": 77.2961124
+      },
+      "reading": {
+        "pm25": 22,
+        "co": 11
+      },
+      "frame_path": "data/rider/export-2026-05-24/images/pollution/day-01/001_itinerary-11-part-1.jpg",
+      "image": {
+        "local_path": "images/pollution/day-01/001_itinerary-11-part-1.jpg",
+        "original_name": "17784268431642791756895816408928.jpg",
+        "remote_url": "https://rpkmdnqkhfbbvuzlvozs.supabase.co/storage/v1/object/public/pollution-photos/day-1/1778426905395-day-1-itinerary-11-part-1.jpg"
+      },
+      "metadata": {
+        "day": 1,
+        "itinerary": "11-1",
+        "title": "Itinerary 11 - Part 1",
+        "stop_id": "Test",
+        "is_traffic_stop": false,
+        "is_traffic_jam": false,
+        "note_raw": "Test"
+      }
+    }
+  ]
+}
