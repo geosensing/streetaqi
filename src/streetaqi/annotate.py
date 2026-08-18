@@ -1,133 +1,242 @@
-"""OCR air quality sensor readings from images using Claude or Gemini APIs."""
+"""Extract air-quality sensor readings from images with supported LLM APIs."""
+
+from __future__ import annotations
 
 import base64
 import glob as glob_module
 import hashlib
 import json
-import os
+import logging
+import math
 import time
-from pathlib import Path
+from contextlib import suppress
+from pathlib import Path, PurePosixPath
+from typing import Any
 
-POLLUTION_OCR_PROMPT = """You are analyzing images containing a handheld air quality sensor.
-Your task is to read the PM2.5 and CO₂ values shown on the LCD display.
+import pandas as pd
 
-The sensor shows:
-- PM2.5 value (μg/m³) - typically 2-3 digits
-- CO₂ value (ppm) - typically 3-4 digits
+from streetaqi.data import (
+    MODEL_OCR_STATUSES,
+    load_id_mapping,
+    load_readings,
+    validate_ocr_measurements,
+    write_id_mapping,
+    write_ocr_results,
+)
 
-Respond with ONLY a JSON object in this exact format:
-{"pm25": <number or null>, "co": <number or null>, "status": "<string>", "confidence": <0.0-1.0>}
+LOGGER = logging.getLogger(__name__)
 
-Status values:
-- "ok": Sensor found and readings extracted successfully
-- "sensor_not_found": No air quality sensor visible in the image
-- "display_unreadable": Sensor visible but values cannot be read (blur, angle, glare)
-- "image_unclear": Image too blurry or dark to analyze
-- "partial_read": Only some values readable (fill in what you can)
+DEFAULT_GEMINI_MODEL = "gemini-3.5-flash"
+DEFAULT_CLAUDE_MODEL = "claude-haiku-4-5-20251001"
 
-Examples:
-- Clear readings: {"pm25": 85, "co": 412, "status": "ok", "confidence": 0.95}
-- Only PM2.5 visible: {"pm25": 92, "co": null, "status": "partial_read", "confidence": 0.75}
-- Blurry image: {"pm25": null, "co": null, "status": "image_unclear", "confidence": 0.8}
+OCR_RESPONSE_SCHEMA = {
+    "type": "object",
+    "additionalProperties": False,
+    "required": ["pm25", "co2", "status", "confidence"],
+    "properties": {
+        "pm25": {"anyOf": [{"type": "number", "minimum": 0}, {"type": "null"}]},
+        "co2": {"anyOf": [{"type": "number", "minimum": 0}, {"type": "null"}]},
+        "status": {"type": "string", "enum": sorted(MODEL_OCR_STATUSES)},
+        "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+    },
+}
 
-Do not include any other text or explanation."""
+POLLUTION_OCR_PROMPT = """Read the PM2.5 and CO2 values shown on the handheld air-quality sensor display.
+
+Return null for a value that is not readable. Use status "ok" when both values
+are readable, "partial_read" when one is readable, "sensor_not_found" when no
+sensor is visible, "display_unreadable" when the sensor is visible but its
+display cannot be read, and "image_unclear" when the image itself is unusable.
+Confidence must describe confidence in the returned status and values. Return
+only the JSON object defined by the response schema, without prose or Markdown."""
+
+
+def image_mime_type(image_path: Path) -> str:
+    """Return the supported MIME type for an image path."""
+    suffix = image_path.suffix.lower()
+    if suffix in {".jpg", ".jpeg"}:
+        return "image/jpeg"
+    if suffix == ".png":
+        return "image/png"
+    raise ValueError(f"Unsupported image type: {image_path.suffix or '(none)'}")
 
 
 def encode_image_base64(image_path: Path) -> str:
-    """Encode image to base64 string."""
-    with open(image_path, "rb") as f:
-        return base64.standard_b64encode(f.read()).decode("utf-8")
-
-
-def read_image_bytes(image_path: Path) -> bytes:
-    """Read image as bytes."""
-    with open(image_path, "rb") as f:
-        return f.read()
+    """Encode an image as base64 text."""
+    return base64.standard_b64encode(image_path.read_bytes()).decode("ascii")
 
 
 def is_gemini_model(model: str) -> bool:
-    """Check if model is a Gemini model."""
+    """Return whether a model ID targets Gemini."""
     return model.startswith("gemini-")
 
 
 def path_to_custom_id(image_path: str) -> str:
-    """Convert image path to valid custom_id (alphanumeric, max 64 chars)."""
-    return hashlib.sha256(image_path.encode()).hexdigest()[:64]
+    """Create a stable, valid batch custom ID from an image path."""
+    return hashlib.sha256(image_path.encode()).hexdigest()
 
 
-def parse_ocr_response(response_text: str) -> dict:
-    """Parse OCR response JSON."""
+def _parse_number(value: Any) -> float | None:
+    if value is None:
+        return None
+    if isinstance(value, bool) or not isinstance(value, int | float):
+        raise ValueError("OCR values must be numbers or null")
+    parsed = float(value)
+    if not math.isfinite(parsed) or parsed < 0:
+        raise ValueError("OCR values must be finite and non-negative")
+    return parsed
+
+
+def parse_ocr_response(response_text: str) -> dict[str, Any]:
+    """Parse and validate an OCR response.
+
+    Malformed responses become an explicit ``parse_error`` result rather than
+    leaking partially valid values into the analytical data.
+    """
     try:
-        text = response_text.strip()
-        if text.startswith("```"):
-            lines = text.split("\n")
-            text = (
-                "\n".join(lines[1:-1]) if lines[-1] == "```" else "\n".join(lines[1:])
-            )
-
-        data = json.loads(text)
+        start = response_text.index("{")
+        end = response_text.rindex("}") + 1
+        payload = json.loads(response_text[start:end])
+        if not isinstance(payload, dict):
+            raise ValueError("OCR response must be an object")
+        status = payload["status"]
+        confidence = payload["confidence"]
+        if status not in MODEL_OCR_STATUSES:
+            raise ValueError("Unknown OCR status")
+        if isinstance(confidence, bool) or not isinstance(confidence, int | float):
+            raise ValueError("Confidence must be numeric")
+        confidence = float(confidence)
+        if not math.isfinite(confidence) or not 0 <= confidence <= 1:
+            raise ValueError("Confidence must be between 0 and 1")
+        pm25 = _parse_number(payload["pm25"])
+        co2 = _parse_number(payload["co2"])
+        validate_ocr_measurements(pm25, co2, status)
         return {
-            "pm25": data.get("pm25"),
-            "co": data.get("co"),
-            "status": data.get("status", "unknown"),
-            "confidence": data.get("confidence", 0.0),
+            "pm25": pm25,
+            "co2": co2,
+            "status": status,
+            "confidence": confidence,
         }
-    except (json.JSONDecodeError, KeyError):
-        return {"pm25": None, "co": None, "status": "parse_error", "confidence": 0.0}
+    except (KeyError, ValueError, json.JSONDecodeError):
+        return {
+            "pm25": None,
+            "co2": None,
+            "status": "parse_error",
+            "confidence": 0.0,
+        }
 
 
-def extract_metadata_from_path(image_path: Path) -> dict:
-    """Extract day and itinerary info from image path."""
-    parts = image_path.parts
+def extract_metadata_from_path(image_path: Path) -> dict[str, int | None]:
+    """Extract day and itinerary identifiers encoded in an image path."""
     day = None
-    itinerary_id = None
-
-    for part in parts:
+    for part in image_path.parts:
         if part.startswith("day-"):
             try:
-                day = int(part.replace("day-", ""))
+                day = int(part.removeprefix("day-"))
             except ValueError:
-                pass
+                continue
 
-    name = image_path.stem
-    if "_itinerary-" in name:
-        try:
-            itinerary_part = name.split("_itinerary-")[1]
-            itinerary_id = int(itinerary_part.split("-")[0])
-        except (ValueError, IndexError):
-            pass
-
+    itinerary_id = None
+    if "_itinerary-" in image_path.stem:
+        with suppress(IndexError, ValueError):
+            itinerary_id = int(
+                image_path.stem.split("_itinerary-", maxsplit=1)[1].split(
+                    "-", maxsplit=1
+                )[0]
+            )
     return {"day": day, "itinerary_id": itinerary_id}
 
 
-def load_manifest(manifest_path: Path) -> dict:
-    """Load manifest and create lookup by image path."""
-    with open(manifest_path) as f:
-        manifest = json.load(f)
-
-    lookup = {}
-    for log in manifest.get("pollution_logs", []):
-        if "image" in log and "local_path" in log["image"]:
-            lookup[log["image"]["local_path"]] = log
-
-    return lookup
+def load_reference_readings(reference_path: Path | None) -> pd.DataFrame | None:
+    """Load optional canonical reference readings for OCR comparison."""
+    return load_readings(reference_path) if reference_path is not None else None
 
 
-def create_batch_request(
-    image_path: Path, custom_id: str, model: str = "claude-haiku-4-5"
-) -> dict:
-    """Create a single batch request for an image."""
-    if not image_path.exists():
+def _reference_for_image(
+    image_path: Path,
+    reference: pd.DataFrame | None,
+) -> dict[str, float | None]:
+    if reference is None:
+        return {
+            "latitude": None,
+            "longitude": None,
+            "reference_pm25": None,
+            "reference_co2": None,
+        }
+
+    candidate_parts = PurePosixPath(image_path.as_posix()).parts
+
+    def is_component_suffix(left: tuple[str, ...], right: tuple[str, ...]) -> bool:
+        return bool(right) and len(left) >= len(right) and left[-len(right) :] == right
+
+    matches = reference[
+        reference["image_local_path"].map(
+            lambda value: (
+                is_component_suffix(candidate_parts, PurePosixPath(str(value)).parts)
+                or is_component_suffix(PurePosixPath(str(value)).parts, candidate_parts)
+            )
+        )
+    ]
+    if len(matches) > 1:
+        raise ValueError(f"Ambiguous reference image path: {image_path}")
+    if matches.empty:
+        return {
+            "latitude": None,
+            "longitude": None,
+            "reference_pm25": None,
+            "reference_co2": None,
+        }
+    row = matches.iloc[0]
+    return {
+        "latitude": float(row["latitude"]),
+        "longitude": float(row["longitude"]),
+        "reference_pm25": float(row["pm25"]),
+        "reference_co2": float(row["co2"]),
+    }
+
+
+def _result_row(
+    image_path: Path,
+    reading: dict[str, Any],
+    reference: pd.DataFrame | None,
+    provider: str,
+    model: str,
+    batch_id: str,
+) -> dict[str, Any]:
+    metadata = extract_metadata_from_path(image_path)
+    return {
+        "id": path_to_custom_id(str(image_path)),
+        "image_path": str(image_path),
+        "day": metadata["day"],
+        "itinerary_id": metadata["itinerary_id"],
+        **_reference_for_image(image_path, reference),
+        **reading,
+        "provider": provider,
+        "model": model,
+        "batch_id": batch_id,
+    }
+
+
+def create_claude_batch_request(
+    image_path: Path,
+    custom_id: str,
+    model: str = DEFAULT_CLAUDE_MODEL,
+) -> dict[str, Any]:
+    """Build one Claude Message Batches API request."""
+    if not image_path.is_file():
         raise FileNotFoundError(f"Image not found: {image_path}")
-
-    image_data = encode_image_base64(image_path)
-
     return {
         "custom_id": custom_id,
         "params": {
             "model": model,
             "max_tokens": 150,
             "system": POLLUTION_OCR_PROMPT,
+            "output_config": {
+                "format": {
+                    "type": "json_schema",
+                    "schema": OCR_RESPONSE_SCHEMA,
+                }
+            },
             "messages": [
                 {
                     "role": "user",
@@ -136,14 +245,11 @@ def create_batch_request(
                             "type": "image",
                             "source": {
                                 "type": "base64",
-                                "media_type": "image/jpeg",
-                                "data": image_data,
+                                "media_type": image_mime_type(image_path),
+                                "data": encode_image_base64(image_path),
                             },
                         },
-                        {
-                            "type": "text",
-                            "text": "Read the PM2.5 and CO₂ values from this air quality sensor image.",
-                        },
+                        {"type": "text", "text": "Read the sensor display."},
                     ],
                 }
             ],
@@ -153,468 +259,284 @@ def create_batch_request(
 
 def submit_claude_batch(
     images: list[Path],
-    model: str = "claude-haiku-4-5",
+    model: str = DEFAULT_CLAUDE_MODEL,
     api_key: str | None = None,
 ) -> tuple[str, dict[str, str]]:
-    """Submit a batch of images for OCR processing via Claude Batch API."""
+    """Submit images to the Claude Message Batches API."""
     import anthropic
 
+    if not images:
+        raise ValueError("At least one image is required")
+    mapping = {path_to_custom_id(str(path)): str(path) for path in images}
+    requests: Any = [
+        create_claude_batch_request(Path(path), custom_id, model)
+        for custom_id, path in mapping.items()
+    ]
     client = anthropic.Anthropic(api_key=api_key)
-
-    requests = []
-    id_to_path = {}
-
-    for image_path in images:
-        try:
-            custom_id = path_to_custom_id(str(image_path))
-            id_to_path[custom_id] = str(image_path)
-            req = create_batch_request(image_path, custom_id, model)
-            requests.append(req)
-        except Exception as e:
-            print(f"Warning: Failed to create request for {image_path}: {e}")
-
-    if not requests:
-        raise ValueError("No valid requests to submit")
-
-    print(f"Submitting batch with {len(requests)} requests...")
     batch = client.messages.batches.create(requests=requests)
-
-    return batch.id, id_to_path
+    return batch.id, mapping
 
 
 def poll_claude_batch(
     batch_id: str,
     api_key: str | None = None,
     poll_interval: int = 30,
-) -> dict:
-    """Poll Claude batch status until completion."""
+) -> None:
+    """Poll a Claude batch until all requests reach a terminal state."""
     import anthropic
 
+    if poll_interval < 1:
+        raise ValueError("poll_interval must be at least one second")
     client = anthropic.Anthropic(api_key=api_key)
-
     while True:
         batch = client.messages.batches.retrieve(batch_id)
-        status = batch.processing_status
-        counts = batch.request_counts
-
-        print(
-            f"Batch {batch_id}: {status} "
-            f"(succeeded={counts.succeeded}, processing={counts.processing}, "
-            f"errored={counts.errored})"
-        )
-
-        if status == "ended":
-            return {
-                "id": batch.id,
-                "status": status,
-                "results_url": batch.results_url,
-                "request_counts": {
-                    "succeeded": counts.succeeded,
-                    "errored": counts.errored,
-                    "canceled": counts.canceled,
-                    "expired": counts.expired,
-                    "processing": counts.processing,
-                },
-            }
-
+        LOGGER.info("Claude batch %s: %s", batch_id, batch.processing_status)
+        if batch.processing_status == "ended":
+            return
         time.sleep(poll_interval)
 
 
 def fetch_claude_batch_results(
     batch_id: str,
     api_key: str | None = None,
-) -> list[dict]:
-    """Fetch results from a completed Claude batch."""
+) -> list[Any]:
+    """Fetch all results from a completed Claude batch."""
     import anthropic
 
     client = anthropic.Anthropic(api_key=api_key)
-
-    results = []
-    for result in client.messages.batches.results(batch_id):
-        results.append(result)
-
-    return results
+    return list(client.messages.batches.results(batch_id))
 
 
 def process_claude_batch_results(
-    results: list,
+    results: list[Any],
     id_to_path: dict[str, str],
-    manifest_lookup: dict | None = None,
-) -> list[dict]:
-    """Process Claude batch results and merge with metadata."""
-    readings = []
-
+    reference: pd.DataFrame | None,
+    model: str,
+    batch_id: str,
+) -> list[dict[str, Any]]:
+    """Normalize Claude batch responses into canonical OCR rows."""
+    rows_by_id = {}
     for result in results:
-        custom_id = result.custom_id
-        image_path = id_to_path.get(custom_id, custom_id)
-        path_obj = Path(image_path)
-
+        if result.custom_id not in id_to_path:
+            raise ValueError(f"Unknown Claude batch custom ID: {result.custom_id}")
+        if result.custom_id in rows_by_id:
+            raise ValueError(f"Duplicate Claude batch custom ID: {result.custom_id}")
+        image_path = Path(id_to_path[result.custom_id])
         if result.result.type == "succeeded":
-            message = result.result.message
-            response_text = ""
-            for block in message.content:
-                if block.type == "text":
-                    response_text = block.text
-                    break
-            reading = parse_ocr_response(response_text)
+            text = next(
+                (
+                    block.text
+                    for block in result.result.message.content
+                    if block.type == "text"
+                ),
+                "",
+            )
+            reading = parse_ocr_response(text)
         else:
             reading = {
                 "pm25": None,
-                "co": None,
+                "co2": None,
                 "status": "api_error",
                 "confidence": 0.0,
             }
+        rows_by_id[result.custom_id] = _result_row(
+            image_path, reading, reference, "anthropic", model, batch_id
+        )
+    missing = set(id_to_path).difference(rows_by_id)
+    if missing:
+        raise ValueError(f"Claude batch omitted {len(missing)} result(s)")
+    return [rows_by_id[custom_id] for custom_id in id_to_path]
 
-        metadata = extract_metadata_from_path(path_obj)
 
-        entry = {
-            "image_path": image_path,
-            "id": custom_id,
-            "day": metadata["day"],
-            "itinerary_id": metadata["itinerary_id"],
-            "reading": reading,
-        }
-
-        if manifest_lookup:
-            rel_path = None
-            for key in manifest_lookup:
-                if key.endswith(path_obj.name) or image_path.endswith(key):
-                    rel_path = key
-                    break
-            if rel_path and rel_path in manifest_lookup:
-                log = manifest_lookup[rel_path]
-                entry["gps"] = {
-                    "latitude": log.get("latitude"),
-                    "longitude": log.get("longitude"),
-                }
-                entry["logged_pm25"] = log.get("pm25")
-                entry["logged_co"] = log.get("co")
-
-        readings.append(entry)
-
-    return readings
+def _gemini_config() -> Any:
+    return {
+        "response_mime_type": "application/json",
+        "response_json_schema": OCR_RESPONSE_SCHEMA,
+        "max_output_tokens": 150,
+    }
 
 
 def process_gemini_sync(
     images: list[Path],
-    model: str = "gemini-2.0-flash",
+    model: str = DEFAULT_GEMINI_MODEL,
     api_key: str | None = None,
-    manifest_lookup: dict | None = None,
-) -> list[dict]:
-    """Process images synchronously using Gemini API."""
+    reference: pd.DataFrame | None = None,
+) -> list[dict[str, Any]]:
+    """Process images synchronously with the Gemini GenerateContent API."""
     from google import genai
     from google.genai import types
 
-    if api_key is None:
-        api_key = os.environ.get("GOOGLE_API_KEY")
-    client = genai.Client(api_key=api_key)
-
-    readings = []
-    total = len(images)
-
-    for i, image_path in enumerate(images, 1):
-        print(f"Processing {i}/{total}: {image_path.name}...", end=" ", flush=True)
-
+    if not images:
+        raise ValueError("At least one image is required")
+    client = genai.Client(api_key=api_key) if api_key else genai.Client()
+    run_id = f"gemini-{time.strftime('%Y%m%dT%H%M%SZ', time.gmtime())}"
+    rows = []
+    for image_path in images:
+        if not image_path.is_file():
+            raise FileNotFoundError(f"Image not found: {image_path}")
+        image = types.Part.from_bytes(
+            data=image_path.read_bytes(),
+            mime_type=image_mime_type(image_path),
+        )
         try:
-            if not image_path.exists():
-                print("SKIP (not found)")
-                readings.append(
-                    {
-                        "image_path": str(image_path),
-                        "id": path_to_custom_id(str(image_path)),
-                        "reading": {
-                            "pm25": None,
-                            "co": None,
-                            "status": "file_not_found",
-                            "confidence": 0.0,
-                        },
-                    }
-                )
-                continue
-
-            image_bytes = read_image_bytes(image_path)
-            image_part = types.Part.from_bytes(data=image_bytes, mime_type="image/jpeg")
-
             response = client.models.generate_content(
                 model=model,
-                contents=[
-                    POLLUTION_OCR_PROMPT,
-                    image_part,
-                    "Read the PM2.5 and CO₂ values from this air quality sensor image.",
-                ],
+                contents=[POLLUTION_OCR_PROMPT, image],
+                config=_gemini_config(),
             )
-
-            response_text = response.text if response.text else ""
-            reading = parse_ocr_response(response_text)
-            print(f"{reading['status']}: PM2.5={reading['pm25']}, CO₂={reading['co']}")
-
-        except Exception as e:
-            print(f"ERROR: {e}")
+            reading = parse_ocr_response(response.text or "")
+        except Exception:  # API errors are persisted without leaking credentials.
+            LOGGER.exception("Gemini request failed for %s", image_path)
             reading = {
                 "pm25": None,
-                "co": None,
+                "co2": None,
                 "status": "api_error",
                 "confidence": 0.0,
             }
-
-        metadata = extract_metadata_from_path(image_path)
-
-        entry = {
-            "image_path": str(image_path),
-            "id": path_to_custom_id(str(image_path)),
-            "day": metadata["day"],
-            "itinerary_id": metadata["itinerary_id"],
-            "reading": reading,
-        }
-
-        if manifest_lookup:
-            for key in manifest_lookup:
-                if key.endswith(image_path.name) or str(image_path).endswith(key):
-                    log = manifest_lookup[key]
-                    entry["gps"] = {
-                        "latitude": log.get("latitude"),
-                        "longitude": log.get("longitude"),
-                    }
-                    entry["logged_pm25"] = log.get("pm25")
-                    entry["logged_co"] = log.get("co")
-                    break
-
-        readings.append(entry)
-
-    return readings
+        rows.append(
+            _result_row(image_path, reading, reference, "google", model, run_id)
+        )
+    return rows
 
 
 def process_gemini_batch(
     images: list[Path],
-    model: str = "gemini-2.0-flash",
+    model: str = DEFAULT_GEMINI_MODEL,
     api_key: str | None = None,
-    manifest_lookup: dict | None = None,
+    reference: pd.DataFrame | None = None,
     poll_interval: int = 30,
-) -> list[dict]:
-    """Process images using Gemini Batch API (50% cost savings)."""
+) -> list[dict[str, Any]]:
+    """Process images with the Gemini Batch API."""
     from google import genai
 
-    if api_key is None:
-        api_key = os.environ.get("GOOGLE_API_KEY")
-    client = genai.Client(api_key=api_key)
-
-    print(f"Preparing batch with {len(images)} images...")
-
-    inline_requests = []
-    image_list = []
-
+    if not images:
+        raise ValueError("At least one image is required")
+    if poll_interval < 1:
+        raise ValueError("poll_interval must be at least one second")
     for image_path in images:
-        if not image_path.exists():
-            continue
+        if not image_path.is_file():
+            raise FileNotFoundError(f"Image not found: {image_path}")
 
-        image_data = encode_image_base64(image_path)
-        image_list.append(image_path)
-
-        inline_requests.append(
-            {
-                "contents": [
-                    {
-                        "role": "user",
-                        "parts": [
-                            {"text": POLLUTION_OCR_PROMPT},
-                            {
-                                "inline_data": {
-                                    "mime_type": "image/jpeg",
-                                    "data": image_data,
-                                }
-                            },
-                            {
-                                "text": "Read the PM2.5 and CO₂ values from this air quality sensor image."
-                            },
-                        ],
-                    }
-                ],
-            }
-        )
-
-    print(f"Submitting batch job with {len(inline_requests)} requests...")
-    batch_job = client.batches.create(
+    client = genai.Client(api_key=api_key) if api_key else genai.Client()
+    requests: Any = [
+        {
+            "contents": [
+                {
+                    "role": "user",
+                    "parts": [
+                        {"text": POLLUTION_OCR_PROMPT},
+                        {
+                            "inline_data": {
+                                "mime_type": image_mime_type(image_path),
+                                "data": encode_image_base64(image_path),
+                            }
+                        },
+                    ],
+                }
+            ],
+            "config": _gemini_config(),
+        }
+        for image_path in images
+    ]
+    job = client.batches.create(
         model=model,
-        src=inline_requests,
-        config={"display_name": f"pollution-ocr-{time.strftime('%Y%m%d_%H%M%S')}"},
+        src=requests,
+        config={
+            "display_name": f"streetaqi-{time.strftime('%Y%m%dT%H%M%SZ', time.gmtime())}"
+        },
     )
-    print(f"Batch job created: {batch_job.name}")
-
+    job_name = job.name
+    if job_name is None:
+        raise RuntimeError("Gemini batch response did not include a job name")
     while True:
-        batch_job = client.batches.get(name=batch_job.name)
-        state = batch_job.state.name
-        print(f"Batch status: {state}")
-
+        job = client.batches.get(name=job_name)
+        if job.state is None:
+            raise RuntimeError("Gemini batch response did not include a state")
+        state = job.state.name
+        LOGGER.info("Gemini batch %s: %s", job_name, state)
         if state == "JOB_STATE_SUCCEEDED":
             break
-        elif state in ("JOB_STATE_FAILED", "JOB_STATE_CANCELLED"):
-            raise RuntimeError(f"Batch job failed with state: {state}")
-
+        if state in {"JOB_STATE_FAILED", "JOB_STATE_CANCELLED", "JOB_STATE_EXPIRED"}:
+            raise RuntimeError(f"Gemini batch ended with state: {state}")
         time.sleep(poll_interval)
 
-    print("Processing results...")
-    readings = []
-    inlined_responses = batch_job.dest.inlined_responses or []
-
-    for i, inlined_resp in enumerate(inlined_responses):
-        image_path = image_list[i] if i < len(image_list) else None
-
-        try:
-            response = inlined_resp.response
-            if response and response.candidates:
-                parts = response.candidates[0].content.parts
-                response_text = ""
-                for part in parts:
-                    if hasattr(part, "text") and part.text:
-                        response_text = part.text
-                        break
-                reading = parse_ocr_response(response_text)
-            else:
-                reading = {
-                    "pm25": None,
-                    "co": None,
-                    "status": "no_response",
-                    "confidence": 0.0,
-                }
-        except Exception as e:
-            print(f"Error parsing response {i}: {e}")
-            reading = {
-                "pm25": None,
-                "co": None,
-                "status": "parse_error",
-                "confidence": 0.0,
-            }
-
-        metadata = extract_metadata_from_path(image_path) if image_path else {}
-
-        entry = {
-            "image_path": str(image_path) if image_path else "",
-            "id": path_to_custom_id(str(image_path)) if image_path else str(i),
-            "day": metadata.get("day"),
-            "itinerary_id": metadata.get("itinerary_id"),
-            "reading": reading,
-        }
-
-        if manifest_lookup and image_path:
-            for key in manifest_lookup:
-                if key.endswith(image_path.name) or str(image_path).endswith(key):
-                    log = manifest_lookup[key]
-                    entry["gps"] = {
-                        "latitude": log.get("latitude"),
-                        "longitude": log.get("longitude"),
-                    }
-                    entry["logged_pm25"] = log.get("pm25")
-                    entry["logged_co"] = log.get("co")
-                    break
-
-        readings.append(entry)
-
-    print(f"Processed {len(readings)} results")
-    return readings
-
-
-def save_readings(readings: list[dict], output_path: Path, batch_id: str) -> None:
-    """Save readings to JSON file."""
-    output = {
-        "batch_id": batch_id,
-        "reading_count": len(readings),
-        "readings": readings,
-    }
-    with open(output_path, "w") as f:
-        json.dump(output, f, indent=2)
-
-
-def save_id_mapping(id_to_path: dict[str, str], output_path: Path) -> None:
-    """Save ID to path mapping for later retrieval."""
-    with open(output_path, "w") as f:
-        json.dump(id_to_path, f, indent=2)
-
-
-def load_id_mapping(mapping_path: Path) -> dict[str, str]:
-    """Load ID to path mapping."""
-    with open(mapping_path) as f:
-        return json.load(f)
+    if job.dest is None:
+        raise RuntimeError("Gemini batch response did not include a destination")
+    responses = job.dest.inlined_responses or []
+    if len(responses) != len(images):
+        raise RuntimeError(
+            f"Gemini returned {len(responses)} responses for {len(images)} images"
+        )
+    rows = []
+    for image_path, inline_response in zip(images, responses, strict=True):
+        response = inline_response.response
+        reading = parse_ocr_response(
+            response.text if response and response.text else ""
+        )
+        rows.append(
+            _result_row(image_path, reading, reference, "google", model, job_name)
+        )
+    return rows
 
 
 def process(
     images: list[Path],
     output_dir: Path,
-    model: str = "gemini-2.0-flash",
-    manifest_path: Path | None = None,
+    model: str = DEFAULT_GEMINI_MODEL,
+    reference_path: Path | None = None,
     batch_id: str | None = None,
     use_batch: bool = False,
     poll_interval: int = 30,
 ) -> Path:
-    """Run OCR on images using Claude or Gemini API.
-
-    For Claude models: uses batch API with polling.
-    For Gemini models: processes synchronously by default, batch with --batch flag.
-    """
+    """Run OCR and persist canonical results as Parquet."""
+    if not images:
+        raise ValueError("At least one image is required")
     output_dir.mkdir(parents=True, exist_ok=True)
-
-    manifest_lookup = None
-    if manifest_path and manifest_path.exists():
-        manifest_lookup = load_manifest(manifest_path)
-        print(f"Loaded manifest with {len(manifest_lookup)} pollution log entries")
-
-    model_short = (
-        model.replace("claude-", "").replace("gemini-", "").replace("-4-5", "")
-    )
-    timestamp = time.strftime("%Y%m%d_%H%M%S")
-    output_file = output_dir / f"pollution_readings_{model_short}_{timestamp}.json"
-    mapping_file = output_dir / f"pollution_id_mapping_{timestamp}.json"
+    reference = load_reference_readings(reference_path)
+    timestamp = time.strftime("%Y%m%dT%H%M%SZ", time.gmtime())
 
     if is_gemini_model(model):
-        print(f"Using Gemini model: {model}")
-        print(f"Processing {len(images)} images...")
-
-        if use_batch:
-            readings = process_gemini_batch(
+        if batch_id is not None:
+            raise ValueError("batch_id is only valid for Claude batches")
+        rows = (
+            process_gemini_batch(
                 images,
                 model,
-                manifest_lookup=manifest_lookup,
+                reference=reference,
                 poll_interval=poll_interval,
             )
-        else:
-            readings = process_gemini_sync(
-                images, model, manifest_lookup=manifest_lookup
-            )
-
-        run_id = f"gemini_{timestamp}"
-        save_readings(readings, output_file, run_id)
-        print(f"Saved {len(readings)} readings -> {output_file}")
-        return output_file
-
-    print(f"Using Claude model: {model}")
-    print(f"Processing {len(images)} images via Batch API...")
-
-    if batch_id:
-        print(f"Retrieving results for batch {batch_id}...")
-        if mapping_file.exists():
-            id_to_path = load_id_mapping(mapping_file)
-        else:
-            id_to_path = {path_to_custom_id(str(p)): str(p) for p in images}
+            if use_batch
+            else process_gemini_sync(images, model, reference=reference)
+        )
     else:
-        batch_id, id_to_path = submit_claude_batch(images, model)
-        print(f"Submitted batch: {batch_id}")
+        if use_batch:
+            raise ValueError("Claude already uses the Message Batches API")
+        if batch_id is None:
+            batch_id, mapping = submit_claude_batch(images, model)
+            write_id_mapping(mapping, output_dir / f"claude_mapping_{batch_id}.parquet")
+            poll_claude_batch(batch_id, poll_interval=poll_interval)
+        else:
+            mapping_path = output_dir / f"claude_mapping_{batch_id}.parquet"
+            if not mapping_path.is_file():
+                raise FileNotFoundError(f"Batch mapping not found: {mapping_path}")
+            mapping = load_id_mapping(mapping_path)
+        results = fetch_claude_batch_results(batch_id)
+        rows = process_claude_batch_results(
+            results,
+            mapping,
+            reference,
+            model,
+            batch_id,
+        )
 
-        save_id_mapping(id_to_path, mapping_file)
-        print(f"Saved ID mapping -> {mapping_file}")
-
-        print("Polling for completion...")
-        poll_claude_batch(batch_id, poll_interval=poll_interval)
-
-    results = fetch_claude_batch_results(batch_id)
-    readings = process_claude_batch_results(results, id_to_path, manifest_lookup)
-    save_readings(readings, output_file, batch_id)
-
-    print(f"Saved {len(readings)} readings -> {output_file}")
-    return output_file
+    output_path = output_dir / f"ocr_results_{timestamp}.parquet"
+    return write_ocr_results(pd.DataFrame(rows), output_path)
 
 
 def find_images(pattern: str) -> list[Path]:
-    """Find images matching glob pattern."""
-    paths = glob_module.glob(pattern, recursive=True)
+    """Return supported images matching a recursive glob pattern."""
     return [
-        Path(p) for p in sorted(paths) if p.lower().endswith((".jpg", ".jpeg", ".png"))
+        Path(path)
+        for path in sorted(glob_module.glob(pattern, recursive=True))  # noqa: PTH207
+        if Path(path).suffix.lower() in {".jpg", ".jpeg", ".png"}
     ]

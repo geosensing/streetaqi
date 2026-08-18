@@ -1,181 +1,111 @@
-# Street Air Quality
+# streetaqi
 
-Street-level air pollution measurements and analysis tools.
+[![PyPI](https://img.shields.io/pypi/v/streetaqi)](https://pypi.org/project/streetaqi/)
+[![Python](https://img.shields.io/pypi/pyversions/streetaqi)](https://pypi.org/project/streetaqi/)
 
-## Delhi Air Quality (May 2026)
-
-Based on 98 PM2.5 readings collected across 5 days:
-
-| Statistic | PM2.5 (μg/m³) | CO₂ (ppm) |
-|-----------|---------------|-----------|
-| Mean | 117.6 | 541 |
-| Median | 94.0 | 415 |
-| Min | 22.0 | 11 |
-| Max | 584.0 | 1497 |
-
-### Threshold Exceedance (EPA 2024 Standards)
-
-| Threshold | % Readings |
-|-----------|-----------|
-| Above Good (>9 μg/m³) | 100% |
-| Above Moderate (>35.4 μg/m³) | 99% |
-| Unhealthy for Sensitive Groups (>55.4 μg/m³) | 99% |
-| Unhealthy (>125.4 μg/m³) | 21% |
-
-**100% of readings exceeded the EPA "Good" air quality threshold.** Nearly all readings (99%) were in the "Unhealthy for Sensitive Groups" category or worse.
+`streetaqi` validates, summarizes, maps, and quality-checks street-level PM2.5
+and CO2 sensor readings. Persistent tables use explicit-schema Parquet. CSV is
+accepted only as an import boundary.
 
 ## Installation
 
 ```bash
 pip install streetaqi
-
-# With LLM support (for image annotation)
-pip install streetaqi[llm]
-
-# With map support
-pip install streetaqi[maps]
-
-# All optional dependencies
-pip install streetaqi[all]
 ```
 
-## CLI Commands
-
-### Analyze pollution data
-
-Run statistical analysis with publication-ready outputs:
+Install optional map or LLM integrations only when needed:
 
 ```bash
-streetaqi analyze --readings exports/pollution_logs.csv --output output/analysis
+pip install "streetaqi[maps]"
+pip install "streetaqi[llm]"
 ```
 
-Outputs:
-- `output/analysis/figs/fig1_map.html` - Interactive map color-coded by PM2.5 level
-- `output/analysis/figs/fig2_histogram.pdf` - PM2.5 and CO₂ distributions
-- `output/analysis/figs/fig3_boxplot_by_day.pdf` - Daily variation
-- `output/analysis/figs/fig4_pm_co_scatter.pdf` - PM2.5 vs CO₂ correlation
-- `output/analysis/tabs/*.tex` - LaTeX tables for publication
+## Analyze the bundled example
 
-### OCR sensor images
+```bash
+streetaqi sample-data --output delhi_readings.parquet
+streetaqi analyze --readings delhi_readings.parquet --output output/analysis
+```
 
-Extract PM2.5 and CO₂ readings from air quality sensor photos using Claude or Gemini APIs:
+The analysis writes typed Parquet tables for the summary, breakpoint
+comparisons, category distribution, and per-stop statistics, plus PDF figures.
+When the `maps` extra is installed, it also writes an interactive HTML map.
+
+The same workflow is available from Python:
+
+```python
+from streetaqi.analyze import compute_summary_stats
+from streetaqi.data import load_bundled_readings
+
+readings = load_bundled_readings()
+summary = compute_summary_stats(readings)
+```
+
+## Measurement semantics
+
+The package compares individual PM2.5 readings with the EPA's 2024 AQI
+concentration breakpoints. It labels the result as a *share of readings*, not an
+AQI or a regulatory exceedance: mobile instantaneous observations do not by
+themselves estimate the EPA's 24-hour or annual regulatory quantities.
+
+Raw CO2 values remain in the canonical data. A persisted quality-control flag
+marks values below 350 ppm, the lower end of the EPA sensor guide's typical
+outdoor range. CO2 summaries report their QC-passing denominator and exclude
+flagged values; PM2.5 summaries are unaffected.
+
+## Canonical readings
+
+The schema is defined once as `streetaqi.data.READINGS_SCHEMA`. It includes the
+reading ID, collection time, itinerary fields, PM2.5, CO2, the CO2 QC flag,
+coordinates, note, and image references. Loaders reject duplicate IDs, invalid
+coordinates, negative concentrations, schema drift, and inconsistent QC flags.
+
+```python
+from pathlib import Path
+
+from streetaqi.data import load_readings, write_readings
+
+readings = load_readings(Path("delhi_readings.parquet"))
+write_readings(readings, Path("validated_readings.parquet"))
+```
+
+## OCR sensor images
+
+Gemini is the default provider. Set `GEMINI_API_KEY` for Gemini or
+`ANTHROPIC_API_KEY` for Claude; both official SDKs read these environment
+variables.
 
 ```bash
 streetaqi annotate \
   --images "exports/images/pollution/**/*.jpg" \
-  --model gemini-2.0-flash \
-  --manifest exports/manifest.json \
-  --output output/annotations/
+  --model gemini-3.5-flash \
+  --reference delhi_readings.parquet \
+  --output output/annotations
 ```
 
-Options:
-- `--model`: `gemini-2.0-flash` (default), `claude-haiku-4-5`
-- `--batch`: Use batch API for 50% cost savings (async)
-- `--manifest`: Include logged values for comparison
+Use `--batch` for Gemini's asynchronous Batch API. Claude models use the
+Message Batches API automatically. OCR results and Claude batch mappings are
+stored as typed Parquet.
 
-### QC viewer
-
-Generate HTML viewer for quality control:
+## Quality-control viewer
 
 ```bash
 streetaqi viewer \
-  --readings output/annotations/pollution_readings_*.json \
+  --readings output/annotations/ocr_results_20260817T120000Z.parquet \
+  --image-root exports/images \
   --output output/annotations/viewer.html
 ```
 
-The viewer shows images with OCR readings, compares to logged values, and allows manual corrections. Export corrected data as JSON or CSV.
+The explicit image root prevents an untrusted results file from embedding
+arbitrary local files. The browser's reviewed JSON download is an interchange
+boundary; analytical storage remains Parquet.
 
-## Data
-
-### Delhi (May 2026)
-
-| Metric | Count |
-|--------|-------|
-| PM2.5 readings | 98 |
-| CO₂ readings | 98 |
-| Unique locations | ~98 |
-
-### Data Schema
-
-Each reading in `data/rider/{city}/readings.json`:
-
-```json
-{
-  "id": "47a27458-...",
-  "timestamp": "2026-05-16T16:46:33.097000+05:30",
-  "timestamp_utc": "2026-05-16T11:16:33.097+00:00",
-  "gps": {
-    "latitude": 28.643719,
-    "longitude": 77.2989862
-  },
-  "reading": {
-    "pm25": 99,
-    "co": 414
-  },
-  "image": {
-    "local_path": "images/pollution/day-09/001_itinerary-1-part-2.jpg",
-    "original_name": "17789301803242784560681094233323.jpg",
-    "remote_url": "https://..."
-  },
-  "metadata": {
-    "day": 9,
-    "itinerary": "1-2",
-    "title": "Itinerary 1 - Part 2",
-    "stop_id": "1.2",
-    "is_traffic_stop": false,
-    "is_traffic_jam": false,
-    "note_raw": "1.2",
-    "address": "Karkari Mor Flyover, East Delhi, Delhi, India",
-    "road_type": "primary",
-    "road_name": "Karkari Mor Flyover"
-  }
-}
-```
-
-### Field Descriptions
-
-| Field | Description |
-|-------|-------------|
-| `reading.pm25` | PM2.5 concentration (μg/m³) |
-| `reading.co` | Carbon dioxide (ppm) |
-| `metadata.road_type` | OSM highway classification |
-| `metadata.is_traffic_stop` | Reading taken at traffic signal |
-| `metadata.is_traffic_jam` | Reading taken in traffic jam |
-| `metadata.note_raw` | Raw rider note (preserved for reference) |
-
-### Road Type Classifications
-
-From OpenStreetMap highway tags:
-
-| Type | Description |
-|------|-------------|
-| `motorway` | Expressway/freeway |
-| `trunk` | Major arterial road |
-| `primary` | Main road (like national highway) |
-| `secondary` | State highway level |
-| `tertiary` | Local connecting road |
-| `residential` | Neighborhood street |
-
-### Traffic Classification Logic
-
-The rider enters notes like "1.2" or "2.1 traffic stop":
-
-- `is_traffic_stop = True` if note contains "traffic stop" (case-insensitive)
-- `is_traffic_jam = True` if note contains "traffic jam" (case-insensitive)
-- `stop_id` is extracted as first token (e.g., "1.2" from "1.2 traffic stop")
-
-## Data Collection
-
-Data collected using the [rider route tool](https://github.com/soodoku/missing-women-rider-route-tool) and processed via [soundscape](https://github.com/soodoku/soundscape).
+## Development
 
 ```bash
-# Convert rider export to streetaqi format
-cd ../soundscape
-uv run soundscape convert-rider-pollution \
-    --manifest data/rider/export-2026-05-24/manifest.json \
-    --output ../streetaqi/data/rider \
-    --city delhi \
-    --geocode
+uv sync --all-groups --all-extras
+make ci
+make docs
 ```
 
 ## License

@@ -1,15 +1,16 @@
 """CLI for streetaqi air quality analysis tools."""
 
+import logging
 from pathlib import Path
 
 import click
 
 
 @click.group()
-@click.version_option()
-def main():
+@click.version_option(package_name="streetaqi")
+def main() -> None:
     """Street-level air quality analysis tools."""
-    pass
+    logging.basicConfig(level=logging.INFO, format="%(message)s")
 
 
 @main.command()
@@ -22,19 +23,21 @@ def main():
 @click.option(
     "--model",
     type=str,
-    default="gemini-2.0-flash",
-    help="Model to use (default: gemini-2.0-flash). Options: gemini-2.0-flash, claude-haiku-4-5",
+    default="gemini-3.5-flash",
+    show_default=True,
+    help="Gemini or Claude model ID.",
 )
 @click.option(
     "--output",
     type=click.Path(path_type=Path),
     default=Path("output/annotations"),
-    help="Output directory for results (default: output/annotations)",
+    show_default=True,
+    help="Output directory for results.",
 )
 @click.option(
-    "--manifest",
+    "--reference",
     type=click.Path(exists=True, path_type=Path),
-    help="Path to manifest.json to merge logged values with OCR readings",
+    help="Canonical readings Parquet for reference-value comparison.",
 )
 @click.option(
     "--batch-id",
@@ -56,11 +59,11 @@ def annotate(
     images: str,
     model: str,
     output: Path,
-    manifest: Path | None,
+    reference: Path | None,
     batch_id: str | None,
     batch: bool,
     poll_interval: int,
-):
+) -> None:
     """OCR air quality sensor readings from images using Claude or Gemini APIs."""
     from streetaqi.annotate import find_images, process
 
@@ -70,15 +73,16 @@ def annotate(
 
     click.echo(f"Found {len(image_paths)} images")
 
-    process(
+    result = process(
         images=image_paths,
         output_dir=output,
         model=model,
-        manifest_path=manifest,
+        reference_path=reference,
         batch_id=batch_id,
         use_batch=batch,
         poll_interval=poll_interval,
     )
+    click.echo(f"OCR results: {result}")
 
 
 @main.command()
@@ -86,18 +90,24 @@ def annotate(
     "--readings",
     type=click.Path(exists=True, path_type=Path),
     required=True,
-    help="Path to pollution_readings.json file from annotate command",
+    help="OCR-result Parquet file from the annotate command.",
 )
 @click.option(
     "--output",
     type=click.Path(path_type=Path),
     help="Output HTML file path (default: same as input with .html extension)",
 )
-def viewer(readings: Path, output: Path | None):
+@click.option(
+    "--image-root",
+    type=click.Path(exists=True, file_okay=False, path_type=Path),
+    help="Trusted directory from which images may be embedded.",
+)
+def viewer(readings: Path, output: Path | None, image_root: Path | None) -> None:
     """Generate HTML viewer for OCR results with QC capabilities."""
     from streetaqi.viewer import process
 
-    process(readings, output)
+    generated = process(readings, output, image_root)
+    click.echo(f"Generated viewer: {generated}")
 
 
 @main.command()
@@ -105,19 +115,38 @@ def viewer(readings: Path, output: Path | None):
     "--readings",
     type=click.Path(exists=True, path_type=Path),
     required=True,
-    help="Path to pollution_logs.csv file",
+    help="Canonical readings Parquet or import-boundary CSV.",
 )
 @click.option(
     "--output",
     type=click.Path(path_type=Path),
     default=Path("output/analysis"),
-    help="Output directory for analysis results (default: output/analysis)",
+    show_default=True,
+    help="Output directory for analysis results.",
 )
-def analyze(readings: Path, output: Path):
+def analyze(readings: Path, output: Path) -> None:
     """Run statistical analysis on air quality data."""
     from streetaqi.analyze import process
 
-    process(readings, output)
+    artifacts = process(readings, output)
+    for name, path in artifacts.items():
+        click.echo(f"{name}: {path}")
+
+
+@main.command("sample-data")
+@click.option(
+    "--output",
+    type=click.Path(path_type=Path),
+    default=Path("delhi_readings.parquet"),
+    show_default=True,
+    help="Destination for the bundled canonical readings.",
+)
+def sample_data(output: Path) -> None:
+    """Export the bundled Delhi readings as canonical Parquet."""
+    from streetaqi.data import load_bundled_readings, write_readings
+
+    written = write_readings(load_bundled_readings(), output)
+    click.echo(f"Sample data: {written}")
 
 
 if __name__ == "__main__":

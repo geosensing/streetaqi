@@ -10,6 +10,10 @@ venv/
 .eggs/
 dist/
 build/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
 
 # IDE/Editor
 .idea/
@@ -24,11 +28,9 @@ Thumbs.db
 # Jupyter
 .ipynb_checkpoints/
 
-# uv
-uv.lock
-
-# Intermediate outputs
-output/annotations/
+# Generated outputs
+output/
+/docs/_build/
 
 # Rider images (large, download separately)
 **/images/
