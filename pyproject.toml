@@ -1,68 +1,140 @@
 [build-system]
-requires = ["hatchling"]
-build-backend = "hatchling.build"
+requires = ["uv_build>=0.12.5,<0.13"]
+build-backend = "uv_build"
 
 [project]
 name = "streetaqi"
-version = "0.1.0"
+version = "0.2.0"
 description = "Street-level air quality analysis tools"
 readme = "README.md"
 license = "MIT"
+license-files = ["LICENSE"]
 requires-python = ">=3.13"
-authors = [{ name = "Gaurav Sood" }]
+authors = [{ name = "Gaurav Sood", email = "contact@gsood.com" }]
 keywords = ["air-quality", "pollution", "pm25", "analysis"]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Environment :: Console",
     "Intended Audience :: Science/Research",
-    "License :: OSI Approved :: MIT License",
     "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
     "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
     "Topic :: Scientific/Engineering :: Atmospheric Science",
 ]
 dependencies = [
-    "click>=8.1",
-    "requests>=2.31",
-    "pandas>=2.2",
-    "numpy>=2.0",
-    "matplotlib>=3.9",
-    "pyarrow>=17.0",
+    "click>=8.4.1",
+    "pandas>=3.0.3",
+    "numpy>=2.4.6",
+    "matplotlib>=3.10.9",
+    "pyarrow>=24",
 ]
 
 [project.optional-dependencies]
 llm = [
-    "anthropic>=0.34",
-    "google-genai>=1.0",
+    "anthropic>=0.104.1",
+    "google-genai>=2.6.0",
 ]
 maps = [
-    "folium>=0.17",
-]
-dev = [
-    "pytest>=8.0",
-    "ruff>=0.4",
+    "folium>=0.20.0",
 ]
 all = [
-    "streetaqi[llm,maps,dev]",
+    "streetaqi[llm,maps]",
 ]
 
 [project.scripts]
 streetaqi = "streetaqi.cli:main"
 
 [project.urls]
-Homepage = "https://github.com/soodoku/streetaqi"
-Repository = "https://github.com/soodoku/streetaqi"
-Issues = "https://github.com/soodoku/streetaqi/issues"
-
-[tool.hatch.build.targets.wheel]
-packages = ["src/streetaqi"]
+Homepage = "https://github.com/geosensing/streetaqi"
+Documentation = "https://github.com/geosensing/streetaqi#readme"
+Repository = "https://github.com/geosensing/streetaqi"
+Issues = "https://github.com/geosensing/streetaqi/issues"
 
 [tool.ruff]
+line-length = 88
 target-version = "py313"
-line-length = 100
 
 [tool.ruff.lint]
-select = ["E", "F", "I", "W", "UP"]
-ignore = ["E501"]
+external = ["DOC"]
+select = [
+    "E", "W", "F", "I", "B", "C4", "UP", "N", "D", "S", "SIM", "T20", "PT", "RUF",
+    "PTH", "RET", "PIE", "FURB", "PERF", "DTZ", "LOG", "G", "TC", "FLY",
+    "RSE", "SLOT", "FA", "A", "EXE", "ICN", "PGH", "PLE", "ARG", "SLF",
+]
+# D203/D213: the google convention the fleet standard picks. W191/D206/D300:
+# ruff's own docs list these as always incompatible with `ruff format`, which
+# the standard also runs.
+ignore = ["D203", "D213", "W191", "D206", "D300", "E501"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S101", "D", "ARG", "SLF"]
+"docs/**" = ["D"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.coverage.run]
+source = ["src"]
+branch = true
+
+[tool.coverage.report]
+fail_under = 85
+
+[tool.pyright]
+include = ["src"]
+typeCheckingMode = "standard"
+
+[tool.deptry]
+known_first_party = ["streetaqi"]
+extend_exclude = ["docs"]
+
+[tool.deptry.per_rule_ignores]
+DEP002 = ["streetaqi"]
+
+[tool.vulture]
+paths = ["src", "tests"]
+exclude = ["docs/assets/"]
+min_confidence = 80
+sort_by_size = true
+
+[tool.pydoclint]
+style = "google"
+arg-type-hints-in-docstring = false
+check-return-types = false
+check-class-attributes = false
+allow-init-docstring = true
+exclude = '\.venv|tests|docs'
+
+[tool.uv.build-backend]
+module-name = "streetaqi"
+
+[dependency-groups]
+test = [
+    "anthropic",
+    "folium",
+    "google-genai",
+    "pytest>=9.1.1",
+    "pytest-cov>=7.1",
+]
+dev = [
+    { include-group = "test" },
+    "ruff>=0.16.3",
+    "deptry>=0.25.1",
+    "vulture>=2.16",
+    "pydoclint>=0.9.1",
+    "pyright>=1.1.411",
+    "pandas-stubs>=3.0.5.260730",
+]
+docs = [
+    "sphinx",
+    "furo",
+    "myst-parser",
+    "sphinx-autodoc-typehints",
+    "sphinx-copybutton",
+    "py-canon @ git+https://github.com/gojiplus/py-canon@v1",
+]
