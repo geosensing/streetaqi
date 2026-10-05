@@ -245,7 +245,7 @@ def make_map(df: pd.DataFrame, output_dir: Path) -> Path | None:
     map_object = folium.Map(
         location=[center_latitude, center_longitude],
         zoom_start=11,
-        tiles="CartoDB Positron",
+        tiles="OpenStreetMap",
     )
     for row in mapped.to_dict(orient="records"):
         pm25 = float(row["pm25"])

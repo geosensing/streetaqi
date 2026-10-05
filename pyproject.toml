@@ -75,8 +75,12 @@ convention = "google"
 "docs/**" = ["D"]
 
 [tool.pytest.ini_options]
+minversion = "8"
+log_level = "INFO"
+xfail_strict = true
+filterwarnings = ["error"]
 testpaths = ["tests"]
-addopts = "-ra"
+addopts = "-ra --strict-config --strict-markers"
 
 [tool.coverage.run]
 source = ["src"]
