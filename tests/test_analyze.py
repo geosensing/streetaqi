@@ -110,6 +110,9 @@ def test_analysis_process_writes_typed_outputs(
     assert all(path.is_file() for path in artifacts.values())
     summary = pd.read_parquet(artifacts["summary"])
     assert summary.loc[0, "n_co2_qc_pass"] == 96
+    map_html = artifacts["map"].read_text()
+    assert "tile.openstreetmap.org" in map_html
+    assert "basemaps.cartocdn.com" not in map_html
 
 
 def test_map_skips_invalid_coordinates(tmp_path: Path, readings: pd.DataFrame) -> None:
