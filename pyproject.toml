@@ -80,6 +80,8 @@ log_level = "INFO"
 xfail_strict = true
 filterwarnings = [
     "error",
+    # google-genai ships a docstring with an unescaped backslash (types.py, `<>:\"|?*\\/`).
+    "ignore:invalid escape sequence:SyntaxWarning",
     # google-genai imports a private typing alias deprecated on Python 3.14.
     "ignore:.*_UnionGenericAlias.*deprecated and slated for removal in Python 3[.]17:DeprecationWarning:google[.]genai[.]types",
 ]
