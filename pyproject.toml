@@ -10,7 +10,7 @@ readme = "README.md"
 license = "MIT"
 license-files = ["LICENSE"]
 requires-python = ">=3.13"
-authors = [{ name = "Gaurav Sood", email = "contact@gsood.com" }]
+authors = [{ name = "Gaurav Sood" }]
 keywords = ["air-quality", "pollution", "pm25", "analysis"]
 classifiers = [
     "Development Status :: 3 - Alpha",
